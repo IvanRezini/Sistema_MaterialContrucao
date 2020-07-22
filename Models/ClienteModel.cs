@@ -10,8 +10,9 @@ namespace Sistema_MaterialContrucao.Models
     {
         private Int32 id;
         private string nome;
+        private string telefone;
         private string cpf;
-        private DateTime dataCadastro;
+        private string dataCadastro;
         private string cep;
         private string cidade;
         private string bairro;
@@ -21,8 +22,9 @@ namespace Sistema_MaterialContrucao.Models
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
+        public string Telefone { get => telefone; set => telefone = value; }
         public string Cpf { get => cpf; set => cpf = value; }
-        public DateTime DataCadastro { get => dataCadastro; set => dataCadastro = value; }
+        public string DataCadastro { get => dataCadastro; set => dataCadastro = value; }
         public string Cep { get => cep; set => cep = value; }
         public string Cidade { get => cidade; set => cidade = value; }
         public string Bairro { get => bairro; set => bairro = value; }

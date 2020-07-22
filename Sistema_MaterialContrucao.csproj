@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\UsuarioLogado.cs" />
     <Compile Include="Controllers\UsurioController.cs" />
     <Compile Include="Controllers\Utilidades.cs" />

@@ -23,7 +23,7 @@ namespace Sistema_MaterialContrucao.Views
         private void Form_gestaoDeUsuario_Load(object sender, EventArgs e)
         {
             this.popularDataGrid();
-            label_data.Text = Utilidades.dia.ToString();
+            label_data.Text = Utilidades.obterData.ToString();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
             dataGridView_usuario.Enabled = false;
@@ -75,7 +75,6 @@ namespace Sistema_MaterialContrucao.Views
             btn_editar.Visible = false;
             btn_excluir.Visible = false;
             btn_salvar.Visible = true;
-
         }
 
         private void dataGridView_usuario_SelectionChanged(object sender, EventArgs e)

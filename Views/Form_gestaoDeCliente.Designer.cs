@@ -31,11 +31,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView_Cliente = new System.Windows.Forms.DataGridView();
-            this.comboBox_tipo = new System.Windows.Forms.ComboBox();
+            this.text_numero = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.text_rua = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.text_cep = new System.Windows.Forms.MaskedTextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.text_telefone = new System.Windows.Forms.MaskedTextBox();
+            this.text_cpf = new System.Windows.Forms.MaskedTextBox();
             this.text_email = new System.Windows.Forms.TextBox();
-            this.text_senha = new System.Windows.Forms.TextBox();
-            this.text_userName = new System.Windows.Forms.TextBox();
+            this.text_bairro = new System.Windows.Forms.TextBox();
+            this.text_cidade = new System.Windows.Forms.TextBox();
             this.text_nome = new System.Windows.Forms.TextBox();
             this.text_id = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,6 +70,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.text_numero)).BeginInit();
             this.panel_botoes.SuspendLayout();
             this.panel_rodape.SuspendLayout();
             this.SuspendLayout();
@@ -81,11 +88,17 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.comboBox_tipo);
+            this.splitContainer1.Panel2.Controls.Add(this.text_numero);
+            this.splitContainer1.Panel2.Controls.Add(this.label13);
+            this.splitContainer1.Panel2.Controls.Add(this.text_rua);
+            this.splitContainer1.Panel2.Controls.Add(this.label12);
+            this.splitContainer1.Panel2.Controls.Add(this.text_cep);
+            this.splitContainer1.Panel2.Controls.Add(this.label11);
             this.splitContainer1.Panel2.Controls.Add(this.text_telefone);
+            this.splitContainer1.Panel2.Controls.Add(this.text_cpf);
             this.splitContainer1.Panel2.Controls.Add(this.text_email);
-            this.splitContainer1.Panel2.Controls.Add(this.text_senha);
-            this.splitContainer1.Panel2.Controls.Add(this.text_userName);
+            this.splitContainer1.Panel2.Controls.Add(this.text_bairro);
+            this.splitContainer1.Panel2.Controls.Add(this.text_cidade);
             this.splitContainer1.Panel2.Controls.Add(this.text_nome);
             this.splitContainer1.Panel2.Controls.Add(this.text_id);
             this.splitContainer1.Panel2.Controls.Add(this.label10);
@@ -95,8 +108,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.label7);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Size = new System.Drawing.Size(816, 429);
-            this.splitContainer1.SplitterDistance = 422;
+            this.splitContainer1.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splitContainer1.Size = new System.Drawing.Size(943, 463);
+            this.splitContainer1.SplitterDistance = 549;
             this.splitContainer1.TabIndex = 14;
             // 
             // dataGridView_Cliente
@@ -121,25 +135,88 @@
             this.dataGridView_Cliente.RowHeadersVisible = false;
             this.dataGridView_Cliente.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView_Cliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Cliente.Size = new System.Drawing.Size(422, 429);
+            this.dataGridView_Cliente.Size = new System.Drawing.Size(549, 463);
             this.dataGridView_Cliente.TabIndex = 3;
             this.dataGridView_Cliente.TabStop = false;
             // 
-            // comboBox_tipo
+            // text_numero
             // 
-            this.comboBox_tipo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.text_numero.Enabled = false;
+            this.text_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text_numero.Location = new System.Drawing.Point(77, 260);
+            this.text_numero.Name = "text_numero";
+            this.text_numero.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.text_numero.Size = new System.Drawing.Size(96, 26);
+            this.text_numero.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label13.Location = new System.Drawing.Point(7, 260);
+            this.label13.Margin = new System.Windows.Forms.Padding(10);
+            this.label13.Name = "label13";
+            this.label13.Padding = new System.Windows.Forms.Padding(3);
+            this.label13.Size = new System.Drawing.Size(75, 26);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Numero:";
+            // 
+            // text_rua
+            // 
+            this.text_rua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_tipo.Enabled = false;
-            this.comboBox_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBox_tipo.FormattingEnabled = true;
-            this.comboBox_tipo.Items.AddRange(new object[] {
-            "1 - Vendedor",
-            "2 - Gerente",
-            "3 - Administrador"});
-            this.comboBox_tipo.Location = new System.Drawing.Point(51, 173);
-            this.comboBox_tipo.Name = "comboBox_tipo";
-            this.comboBox_tipo.Size = new System.Drawing.Size(333, 28);
-            this.comboBox_tipo.TabIndex = 5;
+            this.text_rua.Enabled = false;
+            this.text_rua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.text_rua.Location = new System.Drawing.Point(61, 218);
+            this.text_rua.Name = "text_rua";
+            this.text_rua.Size = new System.Drawing.Size(320, 26);
+            this.text_rua.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label12.Location = new System.Drawing.Point(4, 218);
+            this.label12.Margin = new System.Windows.Forms.Padding(10);
+            this.label12.Name = "label12";
+            this.label12.Padding = new System.Windows.Forms.Padding(3);
+            this.label12.Size = new System.Drawing.Size(49, 26);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Rua:";
+            // 
+            // text_cep
+            // 
+            this.text_cep.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_cep.Enabled = false;
+            this.text_cep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.text_cep.Location = new System.Drawing.Point(45, 136);
+            this.text_cep.Mask = "00000-999";
+            this.text_cep.Name = "text_cep";
+            this.text_cep.Size = new System.Drawing.Size(95, 26);
+            this.text_cep.TabIndex = 4;
+            this.text_cep.Leave += new System.EventHandler(this.text_cep_Leave);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label11.Location = new System.Drawing.Point(1, 99);
+            this.label11.Margin = new System.Windows.Forms.Padding(10);
+            this.label11.Name = "label11";
+            this.label11.Padding = new System.Windows.Forms.Padding(3);
+            this.label11.Size = new System.Drawing.Size(44, 26);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Cpf:";
             // 
             // text_telefone
             // 
@@ -147,11 +224,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text_telefone.Enabled = false;
             this.text_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.text_telefone.Location = new System.Drawing.Point(91, 96);
+            this.text_telefone.Location = new System.Drawing.Point(256, 99);
             this.text_telefone.Mask = "(00) 0 0000 0000";
             this.text_telefone.Name = "text_telefone";
-            this.text_telefone.Size = new System.Drawing.Size(293, 26);
+            this.text_telefone.Size = new System.Drawing.Size(128, 26);
             this.text_telefone.TabIndex = 3;
+            // 
+            // text_cpf
+            // 
+            this.text_cpf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_cpf.Enabled = false;
+            this.text_cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.text_cpf.Location = new System.Drawing.Point(45, 99);
+            this.text_cpf.Mask = "000,000,000-00";
+            this.text_cpf.Name = "text_cpf";
+            this.text_cpf.Size = new System.Drawing.Size(128, 26);
+            this.text_cpf.TabIndex = 2;
+            this.text_cpf.Text = "40587874066";
             // 
             // text_email
             // 
@@ -159,32 +249,32 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text_email.Enabled = false;
             this.text_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.text_email.Location = new System.Drawing.Point(67, 253);
+            this.text_email.Location = new System.Drawing.Point(61, 299);
             this.text_email.Name = "text_email";
             this.text_email.Size = new System.Drawing.Size(317, 26);
-            this.text_email.TabIndex = 7;
+            this.text_email.TabIndex = 9;
             // 
-            // text_senha
+            // text_bairro
             // 
-            this.text_senha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.text_bairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_senha.Enabled = false;
-            this.text_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.text_senha.Location = new System.Drawing.Point(67, 213);
-            this.text_senha.Name = "text_senha";
-            this.text_senha.Size = new System.Drawing.Size(317, 26);
-            this.text_senha.TabIndex = 6;
+            this.text_bairro.Enabled = false;
+            this.text_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.text_bairro.Location = new System.Drawing.Point(61, 176);
+            this.text_bairro.Name = "text_bairro";
+            this.text_bairro.Size = new System.Drawing.Size(323, 26);
+            this.text_bairro.TabIndex = 6;
             // 
-            // text_userName
+            // text_cidade
             // 
-            this.text_userName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.text_cidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_userName.Enabled = false;
-            this.text_userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.text_userName.Location = new System.Drawing.Point(101, 133);
-            this.text_userName.Name = "text_userName";
-            this.text_userName.Size = new System.Drawing.Size(283, 26);
-            this.text_userName.TabIndex = 4;
+            this.text_cidade.Enabled = false;
+            this.text_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.text_cidade.Location = new System.Drawing.Point(204, 136);
+            this.text_cidade.Name = "text_cidade";
+            this.text_cidade.Size = new System.Drawing.Size(180, 26);
+            this.text_cidade.TabIndex = 5;
             // 
             // text_nome
             // 
@@ -193,10 +283,10 @@
             this.text_nome.Enabled = false;
             this.text_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.text_nome.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.text_nome.Location = new System.Drawing.Point(67, 55);
+            this.text_nome.Location = new System.Drawing.Point(61, 56);
             this.text_nome.Name = "text_nome";
             this.text_nome.Size = new System.Drawing.Size(317, 26);
-            this.text_nome.TabIndex = 2;
+            this.text_nome.TabIndex = 1;
             // 
             // text_id
             // 
@@ -216,11 +306,11 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(-6, 253);
+            this.label10.Location = new System.Drawing.Point(1, 302);
             this.label10.Margin = new System.Windows.Forms.Padding(10);
             this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(10);
-            this.label10.Size = new System.Drawing.Size(72, 40);
+            this.label10.Padding = new System.Windows.Forms.Padding(3);
+            this.label10.Size = new System.Drawing.Size(58, 26);
             this.label10.TabIndex = 16;
             this.label10.Text = "Email:";
             // 
@@ -231,13 +321,13 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(-6, 213);
+            this.label5.Location = new System.Drawing.Point(143, 136);
             this.label5.Margin = new System.Windows.Forms.Padding(10);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(10);
-            this.label5.Size = new System.Drawing.Size(80, 40);
+            this.label5.Padding = new System.Windows.Forms.Padding(3);
+            this.label5.Size = new System.Drawing.Size(69, 26);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Senha:";
+            this.label5.Text = "Cidade:";
             // 
             // label9
             // 
@@ -246,13 +336,13 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(-6, 173);
+            this.label9.Location = new System.Drawing.Point(1, 176);
             this.label9.Margin = new System.Windows.Forms.Padding(10);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(10);
-            this.label9.Size = new System.Drawing.Size(63, 40);
+            this.label9.Padding = new System.Windows.Forms.Padding(3);
+            this.label9.Size = new System.Drawing.Size(61, 26);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Tipo:";
+            this.label9.Text = "Bairro:";
             // 
             // label8
             // 
@@ -261,13 +351,13 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(-6, 133);
+            this.label8.Location = new System.Drawing.Point(1, 136);
             this.label8.Margin = new System.Windows.Forms.Padding(10);
             this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(10);
-            this.label8.Size = new System.Drawing.Size(109, 40);
+            this.label8.Padding = new System.Windows.Forms.Padding(3);
+            this.label8.Size = new System.Drawing.Size(51, 26);
             this.label8.TabIndex = 12;
-            this.label8.Text = "UserName:";
+            this.label8.Text = "CEP:";
             // 
             // label7
             // 
@@ -276,11 +366,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(-6, 93);
-            this.label7.Margin = new System.Windows.Forms.Padding(10);
+            this.label7.Location = new System.Drawing.Point(173, 99);
+            this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(10);
-            this.label7.Size = new System.Drawing.Size(95, 40);
+            this.label7.Padding = new System.Windows.Forms.Padding(3);
+            this.label7.Size = new System.Drawing.Size(81, 26);
             this.label7.TabIndex = 11;
             this.label7.Text = "Telefone:";
             // 
@@ -291,11 +381,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(-6, 53);
+            this.label6.Location = new System.Drawing.Point(1, 56);
             this.label6.Margin = new System.Windows.Forms.Padding(10);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(10);
-            this.label6.Size = new System.Drawing.Size(75, 40);
+            this.label6.Padding = new System.Windows.Forms.Padding(3);
+            this.label6.Size = new System.Drawing.Size(61, 26);
             this.label6.TabIndex = 10;
             this.label6.Text = "Nome:";
             // 
@@ -306,11 +396,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(-6, 13);
+            this.label4.Location = new System.Drawing.Point(1, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(10);
             this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(10);
-            this.label4.Size = new System.Drawing.Size(47, 40);
+            this.label4.Padding = new System.Windows.Forms.Padding(3);
+            this.label4.Size = new System.Drawing.Size(33, 26);
             this.label4.TabIndex = 9;
             this.label4.Text = "Id:";
             // 
@@ -323,9 +413,9 @@
             this.panel_botoes.Controls.Add(this.btn_cancelar);
             this.panel_botoes.Controls.Add(this.btn_salvar);
             this.panel_botoes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_botoes.Location = new System.Drawing.Point(0, 429);
+            this.panel_botoes.Location = new System.Drawing.Point(0, 463);
             this.panel_botoes.Name = "panel_botoes";
-            this.panel_botoes.Size = new System.Drawing.Size(816, 31);
+            this.panel_botoes.Size = new System.Drawing.Size(943, 31);
             this.panel_botoes.TabIndex = 13;
             // 
             // btn_editar
@@ -335,9 +425,10 @@
             this.btn_editar.Location = new System.Drawing.Point(496, 0);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(124, 31);
-            this.btn_editar.TabIndex = 5;
+            this.btn_editar.TabIndex = 14;
             this.btn_editar.Text = "Editar Usuário";
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_novo
             // 
@@ -346,20 +437,22 @@
             this.btn_novo.Location = new System.Drawing.Point(372, 0);
             this.btn_novo.Name = "btn_novo";
             this.btn_novo.Size = new System.Drawing.Size(124, 31);
-            this.btn_novo.TabIndex = 4;
+            this.btn_novo.TabIndex = 13;
             this.btn_novo.Text = "Novo Usuário";
             this.btn_novo.UseVisualStyleBackColor = true;
+            this.btn_novo.Click += new System.EventHandler(this.btn_novo_Click);
             // 
             // btn_sair
             // 
             this.btn_sair.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_sair.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_sair.Location = new System.Drawing.Point(692, 0);
+            this.btn_sair.Location = new System.Drawing.Point(819, 0);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(124, 31);
-            this.btn_sair.TabIndex = 3;
+            this.btn_sair.TabIndex = 15;
             this.btn_sair.Text = "Sair";
             this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
             // 
             // btn_excluir
             // 
@@ -368,9 +461,10 @@
             this.btn_excluir.Location = new System.Drawing.Point(248, 0);
             this.btn_excluir.Name = "btn_excluir";
             this.btn_excluir.Size = new System.Drawing.Size(124, 31);
-            this.btn_excluir.TabIndex = 2;
+            this.btn_excluir.TabIndex = 12;
             this.btn_excluir.Text = "Excluir Usuário";
             this.btn_excluir.UseVisualStyleBackColor = true;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
             // 
             // btn_cancelar
             // 
@@ -379,9 +473,10 @@
             this.btn_cancelar.Location = new System.Drawing.Point(124, 0);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(124, 31);
-            this.btn_cancelar.TabIndex = 1;
+            this.btn_cancelar.TabIndex = 11;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_salvar
             // 
@@ -390,9 +485,10 @@
             this.btn_salvar.Location = new System.Drawing.Point(0, 0);
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Size = new System.Drawing.Size(124, 31);
-            this.btn_salvar.TabIndex = 0;
+            this.btn_salvar.TabIndex = 10;
             this.btn_salvar.Text = "Salvar";
             this.btn_salvar.UseVisualStyleBackColor = true;
+            this.btn_salvar.Click += new System.EventHandler(this.btn_salvar_Click);
             // 
             // panel_rodape
             // 
@@ -404,9 +500,9 @@
             this.panel_rodape.Controls.Add(this.label1);
             this.panel_rodape.Controls.Add(this.label_versao);
             this.panel_rodape.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_rodape.Location = new System.Drawing.Point(0, 460);
+            this.panel_rodape.Location = new System.Drawing.Point(0, 494);
             this.panel_rodape.Name = "panel_rodape";
-            this.panel_rodape.Size = new System.Drawing.Size(816, 23);
+            this.panel_rodape.Size = new System.Drawing.Size(943, 23);
             this.panel_rodape.TabIndex = 12;
             // 
             // label_data
@@ -475,7 +571,7 @@
             this.label_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_versao.AutoSize = true;
             this.label_versao.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_versao.Location = new System.Drawing.Point(768, 3);
+            this.label_versao.Location = new System.Drawing.Point(895, 3);
             this.label_versao.Margin = new System.Windows.Forms.Padding(3);
             this.label_versao.Name = "label_versao";
             this.label_versao.Size = new System.Drawing.Size(42, 13);
@@ -487,18 +583,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 483);
+            this.ClientSize = new System.Drawing.Size(943, 517);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel_botoes);
             this.Controls.Add(this.panel_rodape);
             this.Name = "Form_gestaoDeCliente";
             this.Text = "Gestçao de Clientes";
+            this.Load += new System.EventHandler(this.Form_gestaoDeCliente_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.text_numero)).EndInit();
             this.panel_botoes.ResumeLayout(false);
             this.panel_rodape.ResumeLayout(false);
             this.panel_rodape.PerformLayout();
@@ -510,11 +608,10 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView_Cliente;
-        private System.Windows.Forms.ComboBox comboBox_tipo;
-        private System.Windows.Forms.MaskedTextBox text_telefone;
+        private System.Windows.Forms.MaskedTextBox text_cpf;
         private System.Windows.Forms.TextBox text_email;
-        private System.Windows.Forms.TextBox text_senha;
-        private System.Windows.Forms.TextBox text_userName;
+        private System.Windows.Forms.TextBox text_bairro;
+        private System.Windows.Forms.TextBox text_cidade;
         private System.Windows.Forms.TextBox text_nome;
         private System.Windows.Forms.TextBox text_id;
         private System.Windows.Forms.Label label10;
@@ -538,5 +635,12 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_versao;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.MaskedTextBox text_telefone;
+        private System.Windows.Forms.MaskedTextBox text_cep;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox text_rua;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown text_numero;
     }
 }

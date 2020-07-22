@@ -20,9 +20,10 @@ namespace Sistema_MaterialContrucao.Views
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            label_data.Text = Utilidades.dia.ToString();
+            label_data.Text = Utilidades.obterData.ToString();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
+          
         }
 
         private void gestãoDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)

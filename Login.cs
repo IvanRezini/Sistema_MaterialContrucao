@@ -14,6 +14,7 @@ using Sistema_MaterialContrucao.Controllers;
 using Sistema_MaterialContrucao.Views;
 namespace Sistema_MaterialContrucao
 {
+
     public partial class Login : Form
     {
         public Login()
@@ -26,9 +27,10 @@ namespace Sistema_MaterialContrucao
             UsuarioModel uso = new UsuarioModel();
             uso = UsuarioDao.login(text_userName.Text, text_senha.Text);
             UsuarioLogado.usuario = uso;
-            FormPrincipal formPrincipal = new FormPrincipal();
+           FormPrincipal formPrincipal = new FormPrincipal();
             formPrincipal.ShowDialog();
-            Close();
+            this.Close();
+
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -38,3 +40,6 @@ namespace Sistema_MaterialContrucao
         }
     }
 }
+
+
+
