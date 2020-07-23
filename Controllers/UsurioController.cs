@@ -11,9 +11,21 @@ namespace Sistema_MaterialContrucao.Controllers
 {
     class UsurioController
     {
+
         public static string salvar(UsuarioModel uso)
         {
             string resposata = "";
+            string[] nomes = uso.Nome.Split(' ');
+            uso.Nome = "";
+            for (int i = 0; i < nomes.Length; i++)
+            {
+                if (nomes[i].Trim() != "")
+                {
+                    nomes[i] = char.ToUpper(nomes[i][0]) + nomes[i].Substring(1);///Coloca a primeira letra em maisculu
+                    uso.Nome += nomes[i] + " ";
+                }
+            }
+            uso.Nome.Trim();
             if (uso.Nome != "")
             {
                 uso.Nome = char.ToUpper(uso.Nome[0]) + uso.Nome.Substring(1);

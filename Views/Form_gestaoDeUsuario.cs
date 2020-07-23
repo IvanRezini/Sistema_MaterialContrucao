@@ -81,7 +81,6 @@ namespace Sistema_MaterialContrucao.Views
         {
             DataGridView dgv = (DataGridView)sender;
             int contLinhas = dgv.SelectedRows.Count;
-            Console.WriteLine(contLinhas.ToString());
             if (contLinhas > 0)
             {
                 text_id.Text = dgv.SelectedRows[0].Cells[0].Value.ToString();

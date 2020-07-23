@@ -37,9 +37,16 @@ namespace Sistema_MaterialContrucao.Views
 
             dataGridView_Cliente.ClearSelection();
             dataGridView_Cliente.DataSource = ClienteDao.ListaClientes();
-            dataGridView_Cliente.Columns[0].Width = 90;
+            dataGridView_Cliente.Columns[0].Width = 50;
+            dataGridView_Cliente.Columns[1].Width = 110;
+            dataGridView_Cliente.Columns[2].Width = 85;
+            dataGridView_Cliente.Columns[3].Width = 90;
+            dataGridView_Cliente.Columns[4].Width = 65;
+            dataGridView_Cliente.Columns[8].Width = 50;
+            dataGridView_Cliente.AutoResizeColumn(9);
+            dataGridView_Cliente.AutoResizeColumn(10);
         }
-        private void limparCampos()
+            private void limparCampos()
         {
             text_id.Clear();
             text_nome.Clear();
@@ -48,7 +55,7 @@ namespace Sistema_MaterialContrucao.Views
             text_rua.Clear();
             text_cidade.Clear();
             text_cpf.Clear();
-            text_rua.Clear();
+            text_bairro.Clear();
             text_cep.Clear();
             text_numero.Value = 0;
             dataGridView_Cliente.ClearSelection();
@@ -179,6 +186,25 @@ namespace Sistema_MaterialContrucao.Views
         private void btn_sair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridView_Cliente_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            int contLinhas = dgv.SelectedRows.Count;
+            if (contLinhas > 0)
+            {
+                text_id.Text = dgv.SelectedRows[0].Cells[0].Value.ToString();
+                text_nome.Text = dgv.SelectedRows[0].Cells[1].Value.ToString();
+                text_cpf.Text = dgv.SelectedRows[0].Cells[2].Value.ToString();
+                text_telefone.Text = dgv.SelectedRows[0].Cells[3].Value.ToString();
+                text_cep.Text = dgv.SelectedRows[0].Cells[4].Value.ToString();
+                text_cidade.Text = dgv.SelectedRows[0].Cells[5].Value.ToString();
+                text_bairro.Text = dgv.SelectedRows[0].Cells[6].Value.ToString();
+                text_rua.Text = dgv.SelectedRows[0].Cells[7].Value.ToString();
+                text_numero.Text = dgv.SelectedRows[0].Cells[8].Value.ToString();
+                text_email.Text = dgv.SelectedRows[0].Cells[9].Value.ToString();
+            }
         }
     }
 }

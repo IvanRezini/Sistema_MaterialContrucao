@@ -12,11 +12,22 @@ namespace Sistema_MaterialContrucao.Controllers
     {
         public static string salvar(ClienteModel cli)
         {
+            
             string resposata = "";
+            string[] nomes = cli.Nome.Split(' ');
+            cli.Nome = "";
+            for (int i = 0; i < nomes.Length; i++)
+            {
+                if (nomes[i].Trim() != "")
+                {
+                    nomes[i] = char.ToUpper(nomes[i][0]) + nomes[i].Substring(1);///Coloca a primeira letra em maisculu
+                    cli.Nome += nomes[i] + " ";
+                }
+            }
             if (cli.Nome != "")
             {
-                cli.Nome = char.ToUpper(cli.Nome[0]) + cli.Nome.Substring(1);///Coloca a primeira letra em maisculu
-                if (Utilidades.IsValidCpf(cli.Cpf)) 
+                cli.Nome.Trim();
+                if (Utilidades.IsValidCpf(cli.Cpf))
                 {
                     string telefone = cli.Telefone;
                     telefone = telefone.Replace(")", "");

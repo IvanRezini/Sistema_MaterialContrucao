@@ -138,6 +138,7 @@
             this.dataGridView_Cliente.Size = new System.Drawing.Size(549, 463);
             this.dataGridView_Cliente.TabIndex = 3;
             this.dataGridView_Cliente.TabStop = false;
+            this.dataGridView_Cliente.SelectionChanged += new System.EventHandler(this.dataGridView_Cliente_SelectionChanged);
             // 
             // text_numero
             // 
@@ -593,6 +594,7 @@
             this.Controls.Add(this.panel_rodape);
             this.Name = "Form_gestaoDeCliente";
             this.Text = "Gestçao de Clientes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_gestaoDeCliente_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
