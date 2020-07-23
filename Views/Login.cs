@@ -12,32 +12,47 @@ using Sistema_MaterialContrucao.Dao;
 using Sistema_MaterialContrucao.Models;
 using Sistema_MaterialContrucao.Controllers;
 using Sistema_MaterialContrucao.Views;
+using System.Reflection;
+
 namespace Sistema_MaterialContrucao
 {
 
     public partial class Login : Form
     {
-        public Login()
+        private FormPrincipal form;
+
+        public Login(FormPrincipal f)
         {
             InitializeComponent();
+            form = f;
         }
 
         private void btn_logar_Click(object sender, EventArgs e)
         {
             UsuarioModel uso = new UsuarioModel();
             uso = UsuarioDao.login(text_userName.Text, text_senha.Text);
-            UsuarioLogado.usuario = uso;
-           FormPrincipal formPrincipal = new FormPrincipal();
-            formPrincipal.ShowDialog();
-            this.Close();
+            if (uso.Id > 0)
+            {
+                UsuarioLogado.usuario = uso;
+                MessageBox.Show("Bem vindo " + uso.Nome);
+                Close();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuario ou senha incoretos");
+            }
 
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             UsuarioLogado.usuario = null;
+            form.Close();
             Close();
         }
+
+        
     }
 }
 

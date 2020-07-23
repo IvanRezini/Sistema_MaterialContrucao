@@ -36,6 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label_versao = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +49,6 @@
             this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.professoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -133,15 +133,38 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem,
             this.clienteToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.manutençãoToolStripMenuItem,
-            this.loginToolStripMenuItem});
+            this.manutençãoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(697, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logarToolStripMenuItem,
+            this.sairToolStripMenuItem});
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.loginToolStripMenuItem.Text = "Login";
+            // 
+            // logarToolStripMenuItem
+            // 
+            this.logarToolStripMenuItem.Name = "logarToolStripMenuItem";
+            this.logarToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.logarToolStripMenuItem.Text = "Novo Usuario";
+            this.logarToolStripMenuItem.Click += new System.EventHandler(this.logarToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // clienteToolStripMenuItem
             // 
@@ -154,8 +177,8 @@
             // cadastroClienteToolStripMenuItem
             // 
             this.cadastroClienteToolStripMenuItem.Name = "cadastroClienteToolStripMenuItem";
-            this.cadastroClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastroClienteToolStripMenuItem.Text = "Cadastro de cliente";
+            this.cadastroClienteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.cadastroClienteToolStripMenuItem.Text = "Gestao de cliente";
             this.cadastroClienteToolStripMenuItem.Click += new System.EventHandler(this.cadastroClienteToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
@@ -170,13 +193,13 @@
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.novoToolStripMenuItem.Text = "Novo Usuário";
             // 
             // gestãoDeUsuáriosToolStripMenuItem
             // 
             this.gestãoDeUsuáriosToolStripMenuItem.Name = "gestãoDeUsuáriosToolStripMenuItem";
-            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.gestãoDeUsuáriosToolStripMenuItem.Text = "Gestão de usuários";
             this.gestãoDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeUsuáriosToolStripMenuItem_Click);
             // 
@@ -215,27 +238,6 @@
             this.turmasToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.turmasToolStripMenuItem.Text = "Turmas";
             // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logarToolStripMenuItem,
-            this.sairToolStripMenuItem});
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.loginToolStripMenuItem.Text = "Login";
-            // 
-            // logarToolStripMenuItem
-            // 
-            this.logarToolStripMenuItem.Name = "logarToolStripMenuItem";
-            this.logarToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.logarToolStripMenuItem.Text = "Logar";
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.sairToolStripMenuItem.Text = "Sair";
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,7 +249,8 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
-            this.Load += new System.EventHandler(this.FormPrincipal_Load);
+            this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
+            this.VisibleChanged += new System.EventHandler(this.FormPrincipal_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -261,7 +264,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label_versao;
         public System.Windows.Forms.Label label_usuario;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -278,7 +280,8 @@
         private System.Windows.Forms.ToolStripMenuItem professoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bancoDeDadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem turmasToolStripMenuItem;
-        private System.Windows.Forms.Label label_data;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label_versao;
+        public System.Windows.Forms.Label label_data;
     }
 }

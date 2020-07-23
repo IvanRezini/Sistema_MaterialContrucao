@@ -15,15 +15,25 @@ namespace Sistema_MaterialContrucao.Views
     {
         public FormPrincipal()
         {
-            InitializeComponent();
-        }
+            Hide();
+            Login login = new Login(this);
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
+            login.ShowDialog();
+            InitializeComponent();
+  
+        }
+        private void FormPrincipal_Shown(object sender, EventArgs e)
         {
             label_data.Text = Utilidades.obterData.ToString();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
-          
+        }
+        private void FormPrincipal_VisibleChanged(object sender, EventArgs e)
+        {
+
+            label_data.Text = Utilidades.obterData.ToString();
+            label_usuario.Text = UsuarioLogado.usuario.Nome;
+            label_versao.Text = Versao.versao;
         }
 
         private void gestãoDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,6 +46,20 @@ namespace Sistema_MaterialContrucao.Views
         {
             Form_gestaoDeCliente form_CadastroCliente = new Form_gestaoDeCliente();
             form_CadastroCliente.ShowDialog();
+        }
+
+        private void logarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Login login = new Login(this);
+            login.Show();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Login login = new Login(this);
+            login.Show();
         }
     }
 }
