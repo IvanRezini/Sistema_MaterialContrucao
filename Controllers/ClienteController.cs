@@ -13,11 +13,9 @@ namespace Sistema_MaterialContrucao.Controllers
         public static string salvar(ClienteModel cli)
         {
             string resposata = "";
-            cli.DataCadastro = DateTime.Now.ToString();
             if (cli.Nome != "")
             {
                 cli.Nome = char.ToUpper(cli.Nome[0]) + cli.Nome.Substring(1);///Coloca a primeira letra em maisculu
-                Console.WriteLine(cli.Cpf);
                 if (Utilidades.IsValidCpf(cli.Cpf)) 
                 {
                     string telefone = cli.Telefone;
@@ -38,9 +36,10 @@ namespace Sistema_MaterialContrucao.Controllers
                                         {
                                             if (Utilidades.IsValidEmail(cli.Email) || cli.Email == "")
                                             {
+                                                cli.DataCadastro = DateTime.Now.ToString();
                                                 if (cli.Id > 0)
                                                 {
-                                                    //ClienteDao.update(cli);//atualiza um cliente existente
+                                                    ClienteDao.update(cli);//atualiza um cliente existente
                                                 }
                                                 else
                                                 {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Correios.CorreiosServiceReference;
 using Sistema_MaterialContrucao.Controllers;
 using Sistema_MaterialContrucao.Dao;
 using Sistema_MaterialContrucao.Models;
@@ -18,8 +19,8 @@ namespace Sistema_MaterialContrucao.Views
         public Form_gestaoDeCliente()
         {
             InitializeComponent();
-            
-        }  
+
+        }
         private void Form_gestaoDeCliente_Load(object sender, EventArgs e)
         {
             this.popularDataGrid();
@@ -36,6 +37,7 @@ namespace Sistema_MaterialContrucao.Views
 
             dataGridView_Cliente.ClearSelection();
             dataGridView_Cliente.DataSource = ClienteDao.ListaClientes();
+            dataGridView_Cliente.Columns[0].Width = 90;
         }
         private void limparCampos()
         {
@@ -79,7 +81,7 @@ namespace Sistema_MaterialContrucao.Views
         }
         private void text_cep_Leave(object sender, EventArgs e)
         {
-            string []endereco = Utilidades.endereco(text_cep.Text);
+            string[] endereco = Utilidades.endereco(text_cep.Text);
             text_cidade.Text = endereco[0];
             text_bairro.Text = endereco[1];
             text_rua.Text = endereco[2];
@@ -134,17 +136,24 @@ namespace Sistema_MaterialContrucao.Views
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Confirmar exclusão?", "Excluir?", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
+            if (dataGridView_Cliente.SelectedRows.Count > 0)
             {
-                UsuarioDao.excluir(text_id.Text);
-                dataGridView_Cliente.Rows.Remove(dataGridView_Cliente.CurrentRow);
-                this.limparCampos();
-                this.ocultarCampos();
-                btn_salvar.Visible = false;
-                btn_excluir.Visible = false;
-                btn_editar.Visible = true;
-                btn_novo.Visible = true;
+                DialogResult res = MessageBox.Show("Confirmar exclusão?", "Excluir?", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    ClienteDao.excluir(text_id.Text);
+                    dataGridView_Cliente.Rows.Remove(dataGridView_Cliente.CurrentRow);
+                    this.limparCampos();
+                    this.ocultarCampos();
+                    btn_salvar.Visible = false;
+                    btn_excluir.Visible = false;
+                    btn_editar.Visible = true;
+                    btn_novo.Visible = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um cliente");
             }
         }
 

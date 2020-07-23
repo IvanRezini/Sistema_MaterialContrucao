@@ -144,6 +144,11 @@
             this.text_numero.Enabled = false;
             this.text_numero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text_numero.Location = new System.Drawing.Point(77, 260);
+            this.text_numero.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.text_numero.Name = "text_numero";
             this.text_numero.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.text_numero.Size = new System.Drawing.Size(96, 26);
@@ -241,7 +246,6 @@
             this.text_cpf.Name = "text_cpf";
             this.text_cpf.Size = new System.Drawing.Size(128, 26);
             this.text_cpf.TabIndex = 2;
-            this.text_cpf.Text = "40587874066";
             // 
             // text_email
             // 

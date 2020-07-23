@@ -68,7 +68,7 @@ namespace Sistema_MaterialContrucao.Views
             text_userName.Enabled = true;
         }
 
-            private void btn_novo_Click(object sender, EventArgs e)
+        private void btn_novo_Click(object sender, EventArgs e)
         {
             this.limparCampos();
             this.mostrarCampos();
@@ -88,9 +88,9 @@ namespace Sistema_MaterialContrucao.Views
                 text_nome.Text = dgv.SelectedRows[0].Cells[1].Value.ToString();
                 text_telefone.Text = dgv.SelectedRows[0].Cells[2].Value.ToString();
                 text_userName.Text = dgv.SelectedRows[0].Cells[3].Value.ToString();
-                text_senha.Text= dgv.SelectedRows[0].Cells[4].Value.ToString();
-                comboBox_tipo.SelectedIndex = Int32.Parse(dgv.SelectedRows[0].Cells[5].Value.ToString())-1;
-                text_email.Text= dgv.SelectedRows[0].Cells[6].Value.ToString();
+                text_senha.Text = dgv.SelectedRows[0].Cells[4].Value.ToString();
+                comboBox_tipo.SelectedIndex = Int32.Parse(dgv.SelectedRows[0].Cells[5].Value.ToString()) - 1;
+                text_email.Text = dgv.SelectedRows[0].Cells[6].Value.ToString();
 
             }
         }
@@ -118,10 +118,10 @@ namespace Sistema_MaterialContrucao.Views
             {
                 uso.Id = Int32.Parse(text_id.Text);
             }
-          
+
             string resposta = UsurioController.salvar(uso);
-            
-            if (resposta == "") 
+
+            if (resposta == "")
             {
                 dataGridView_usuario.Enabled = false;
                 this.popularDataGrid();
@@ -145,17 +145,24 @@ namespace Sistema_MaterialContrucao.Views
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Confirmar exclusão?", "Excluir?", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
+            if (dataGridView_usuario.SelectedRows.Count > 0)
             {
-                UsuarioDao.excluir(text_id.Text);
-                dataGridView_usuario.Rows.Remove(dataGridView_usuario.CurrentRow);
-                this.limparCampos();
-                this.ocultarCampos();
-                btn_salvar.Visible = false;
-                btn_excluir.Visible = false;
-                btn_editar.Visible = true;
-                btn_novo.Visible = true;
+                DialogResult res = MessageBox.Show("Confirmar exclusão?", "Excluir?", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    UsuarioDao.excluir(text_id.Text);
+                    dataGridView_usuario.Rows.Remove(dataGridView_usuario.CurrentRow);
+                    this.limparCampos();
+                    this.ocultarCampos();
+                    btn_salvar.Visible = false;
+                    btn_excluir.Visible = false;
+                    btn_editar.Visible = true;
+                    btn_novo.Visible = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um Usuario");
             }
         }
 
