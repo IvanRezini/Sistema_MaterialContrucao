@@ -15,6 +15,7 @@ namespace Sistema_MaterialContrucao.Models
         private float quantidadeEstoque;
         private string unidade; //quantidade Kg L U
         private string fornecedor;
+        private int status;//Status 0 sem estoque status 1 com estoque
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
@@ -23,5 +24,6 @@ namespace Sistema_MaterialContrucao.Models
         public float QuantidadeEstoque { get => quantidadeEstoque; set => quantidadeEstoque = value; }
         public string Unidade { get => unidade; set => unidade = value; }
         public string Fornecedor { get => fornecedor; set => fornecedor = value; }
+        public int Status { get => status; set => status = value; }
     }
 }

@@ -39,6 +39,15 @@
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_salvar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox_unidadeMedida = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox_nome = new System.Windows.Forms.TextBox();
+            this.textBox_descricao = new System.Windows.Forms.TextBox();
+            this.textBox_fornecedor = new System.Windows.Forms.TextBox();
             this.panel_rodape.SuspendLayout();
             this.panel_botoes.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +64,7 @@
             this.panel_rodape.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_rodape.Location = new System.Drawing.Point(0, 427);
             this.panel_rodape.Name = "panel_rodape";
-            this.panel_rodape.Size = new System.Drawing.Size(800, 23);
+            this.panel_rodape.Size = new System.Drawing.Size(708, 23);
             this.panel_rodape.TabIndex = 3;
             // 
             // label_data
@@ -124,7 +133,7 @@
             this.label_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_versao.AutoSize = true;
             this.label_versao.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_versao.Location = new System.Drawing.Point(752, 3);
+            this.label_versao.Location = new System.Drawing.Point(660, 3);
             this.label_versao.Margin = new System.Windows.Forms.Padding(3);
             this.label_versao.Name = "label_versao";
             this.label_versao.Size = new System.Drawing.Size(42, 13);
@@ -140,19 +149,20 @@
             this.panel_botoes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_botoes.Location = new System.Drawing.Point(0, 396);
             this.panel_botoes.Name = "panel_botoes";
-            this.panel_botoes.Size = new System.Drawing.Size(800, 31);
+            this.panel_botoes.Size = new System.Drawing.Size(708, 31);
             this.panel_botoes.TabIndex = 5;
             // 
             // btn_sair
             // 
             this.btn_sair.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_sair.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_sair.Location = new System.Drawing.Point(676, 0);
+            this.btn_sair.Location = new System.Drawing.Point(584, 0);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(124, 31);
-            this.btn_sair.TabIndex = 3;
+            this.btn_sair.TabIndex = 7;
             this.btn_sair.Text = "Sair";
             this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
             // 
             // btn_cancelar
             // 
@@ -161,9 +171,10 @@
             this.btn_cancelar.Location = new System.Drawing.Point(124, 0);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(124, 31);
-            this.btn_cancelar.TabIndex = 1;
+            this.btn_cancelar.TabIndex = 6;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_salvar
             // 
@@ -172,15 +183,117 @@
             this.btn_salvar.Location = new System.Drawing.Point(0, 0);
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Size = new System.Drawing.Size(124, 31);
-            this.btn_salvar.TabIndex = 0;
+            this.btn_salvar.TabIndex = 5;
             this.btn_salvar.Text = "Salvar";
             this.btn_salvar.UseVisualStyleBackColor = true;
+            this.btn_salvar.Click += new System.EventHandler(this.btn_salvar_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 30);
+            this.label4.Margin = new System.Windows.Forms.Padding(3);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(10);
+            this.label4.Size = new System.Drawing.Size(75, 40);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Nome:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(7, 70);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(10);
+            this.label5.Size = new System.Drawing.Size(96, 40);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Decrição:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(7, 110);
+            this.label6.Margin = new System.Windows.Forms.Padding(3);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(10);
+            this.label6.Size = new System.Drawing.Size(115, 40);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Fornecedor:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(7, 150);
+            this.label7.Margin = new System.Windows.Forms.Padding(3);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(10);
+            this.label7.Size = new System.Drawing.Size(93, 40);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Unidade:";
+            // 
+            // comboBox_unidadeMedida
+            // 
+            this.comboBox_unidadeMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_unidadeMedida.FormattingEnabled = true;
+            this.comboBox_unidadeMedida.Location = new System.Drawing.Point(101, 162);
+            this.comboBox_unidadeMedida.Name = "comboBox_unidadeMedida";
+            this.comboBox_unidadeMedida.Size = new System.Drawing.Size(121, 28);
+            this.comboBox_unidadeMedida.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(242, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(228, 24);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Cadastro de novo produto";
+            // 
+            // textBox_nome
+            // 
+            this.textBox_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nome.Location = new System.Drawing.Point(101, 38);
+            this.textBox_nome.Name = "textBox_nome";
+            this.textBox_nome.Size = new System.Drawing.Size(201, 26);
+            this.textBox_nome.TabIndex = 1;
+            // 
+            // textBox_descricao
+            // 
+            this.textBox_descricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_descricao.Location = new System.Drawing.Point(101, 78);
+            this.textBox_descricao.Name = "textBox_descricao";
+            this.textBox_descricao.Size = new System.Drawing.Size(426, 26);
+            this.textBox_descricao.TabIndex = 2;
+            // 
+            // textBox_fornecedor
+            // 
+            this.textBox_fornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_fornecedor.Location = new System.Drawing.Point(112, 118);
+            this.textBox_fornecedor.Name = "textBox_fornecedor";
+            this.textBox_fornecedor.Size = new System.Drawing.Size(190, 26);
+            this.textBox_fornecedor.TabIndex = 3;
             // 
             // Form_CadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(708, 450);
+            this.Controls.Add(this.textBox_fornecedor);
+            this.Controls.Add(this.textBox_descricao);
+            this.Controls.Add(this.textBox_nome);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.comboBox_unidadeMedida);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.panel_botoes);
             this.Controls.Add(this.panel_rodape);
             this.Name = "Form_CadastroProduto";
@@ -190,6 +303,7 @@
             this.panel_rodape.PerformLayout();
             this.panel_botoes.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -206,5 +320,14 @@
         private System.Windows.Forms.Button btn_sair;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_salvar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox_unidadeMedida;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox_nome;
+        private System.Windows.Forms.TextBox textBox_descricao;
+        private System.Windows.Forms.TextBox textBox_fornecedor;
     }
 }

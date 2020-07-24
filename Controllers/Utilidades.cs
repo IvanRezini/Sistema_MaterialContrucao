@@ -12,9 +12,14 @@ namespace Sistema_MaterialContrucao.Controllers
     class Utilidades
     {
         public static string caminho = System.Environment.CurrentDirectory;//lista o caminho do executavel
+
         public static string nomeBanco = "banco.db";
+
         public static string caminhoBanco = caminho + @"\banco\";
-        public static string obterData = DateTime.Now.ToString("dd-MM-yyyy  HH:mm");
+
+        public static string obterData = DateTime.Now.ToString("dd-MM-yyyy  HH:mm");//obeter data atual
+
+        public static string[] unidadeDeMedida = { "Kg", "LT", "M", "Un", "Cx" };//usada para popular o comboBox de unidade de produtos
 
         ///Validar email
         public static bool IsValidEmail(string email)

@@ -41,8 +41,8 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,7 +135,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
             this.clienteToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
+            this.produtoToolStripMenuItem,
             this.manutençãoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -181,25 +181,26 @@
             this.cadastroClienteToolStripMenuItem.Text = "Gestao de cliente";
             this.cadastroClienteToolStripMenuItem.Click += new System.EventHandler(this.cadastroClienteToolStripMenuItem_Click);
             // 
-            // usuariosToolStripMenuItem
+            // produtoToolStripMenuItem
             // 
-            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoToolStripMenuItem,
+            this.produtoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroProdutoToolStripMenuItem,
             this.gestãoDeUsuáriosToolStripMenuItem});
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.produtoToolStripMenuItem.Text = "Produtos";
             // 
-            // novoToolStripMenuItem
+            // cadastroProdutoToolStripMenuItem
             // 
-            this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.novoToolStripMenuItem.Text = "Novo Usuário";
+            this.cadastroProdutoToolStripMenuItem.Name = "cadastroProdutoToolStripMenuItem";
+            this.cadastroProdutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastroProdutoToolStripMenuItem.Text = "Cadastro";
+            this.cadastroProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastroProdutoToolStripMenuItem_Click);
             // 
             // gestãoDeUsuáriosToolStripMenuItem
             // 
             this.gestãoDeUsuáriosToolStripMenuItem.Name = "gestãoDeUsuáriosToolStripMenuItem";
-            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestãoDeUsuáriosToolStripMenuItem.Text = "Gestão de usuários";
             this.gestãoDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeUsuáriosToolStripMenuItem_Click);
             // 
@@ -271,8 +272,8 @@
         private System.Windows.Forms.ToolStripMenuItem logarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manutençãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroProdutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeUsuáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroClienteToolStripMenuItem;

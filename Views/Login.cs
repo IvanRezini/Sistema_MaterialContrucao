@@ -51,7 +51,6 @@ namespace Sistema_MaterialContrucao
             form.Close();
             Close();
         }
-
         
     }
 }

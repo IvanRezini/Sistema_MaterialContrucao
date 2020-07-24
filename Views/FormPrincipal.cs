@@ -30,7 +30,6 @@ namespace Sistema_MaterialContrucao.Views
         }
         private void FormPrincipal_VisibleChanged(object sender, EventArgs e)
         {
-
             label_data.Text = Utilidades.obterData.ToString();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
@@ -60,6 +59,12 @@ namespace Sistema_MaterialContrucao.Views
             Hide();
             Login login = new Login(this);
             login.Show();
+        }
+
+        private void cadastroProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_CadastroProduto form_CadastroProduto = new Form_CadastroProduto();
+            form_CadastroProduto.ShowDialog();
         }
     }
 }

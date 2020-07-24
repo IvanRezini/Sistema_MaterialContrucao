@@ -24,6 +24,7 @@ namespace Sistema_MaterialContrucao.Controllers
                     cli.Nome += nomes[i] + " ";
                 }
             }
+
             if (cli.Nome != "")
             {
                 cli.Nome.Trim();
