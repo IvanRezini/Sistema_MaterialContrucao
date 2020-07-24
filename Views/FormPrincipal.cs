@@ -35,11 +35,6 @@ namespace Sistema_MaterialContrucao.Views
             label_versao.Text = Versao.versao;
         }
 
-        private void gestãoDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_gestaoDeUsuario form_GestaoDeUsuario = new Form_gestaoDeUsuario();
-            form_GestaoDeUsuario.ShowDialog();
-        }
 
         private void cadastroClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,6 +60,18 @@ namespace Sistema_MaterialContrucao.Views
         {
             Form_CadastroProduto form_CadastroProduto = new Form_CadastroProduto();
             form_CadastroProduto.ShowDialog();
+        }
+
+        private void gestãoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_gestaoDeUsuario form_GestaoDeUsuario = new Form_gestaoDeUsuario();
+            form_GestaoDeUsuario.ShowDialog();
+        }
+
+        private void darEntradaNoEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_entradaNoEstoque form_EntradaNoEstoque = new Form_entradaNoEstoque();
+            form_EntradaNoEstoque.ShowDialog();
         }
     }
 }
