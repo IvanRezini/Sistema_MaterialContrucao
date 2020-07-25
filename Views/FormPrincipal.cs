@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistema_MaterialContrucao.Controllers;
+using Sistema_MaterialContrucao.Models;
 
 namespace Sistema_MaterialContrucao.Views
 {
@@ -24,15 +25,17 @@ namespace Sistema_MaterialContrucao.Views
         }
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
-            label_data.Text = Utilidades.obterData.ToString();
-            label_usuario.Text = UsuarioLogado.usuario.Nome;
-            label_versao.Text = Versao.versao;
+                label_data.Text = Utilidades.obterData.ToString();
+                label_usuario.Text = UsuarioLogado.usuario.Nome;
+                label_versao.Text = Versao.versao;
+            
         }
         private void FormPrincipal_VisibleChanged(object sender, EventArgs e)
         {
-            label_data.Text = Utilidades.obterData.ToString();
-            label_usuario.Text = UsuarioLogado.usuario.Nome;
-            label_versao.Text = Versao.versao;
+            if(UsuarioLogado.usuario.Id >0)
+                label_data.Text = Utilidades.obterData.ToString();
+                label_usuario.Text = UsuarioLogado.usuario.Nome;
+                label_versao.Text = Versao.versao;
         }
 
 

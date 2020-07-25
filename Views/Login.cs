@@ -24,6 +24,7 @@ namespace Sistema_MaterialContrucao
         public Login(FormPrincipal f)
         {
             InitializeComponent();
+            ControlBox = false;
             form = f;
         }
 
@@ -35,7 +36,7 @@ namespace Sistema_MaterialContrucao
             {
                 UsuarioLogado.usuario = uso;
                 MessageBox.Show("Bem vindo " + uso.Nome);
-                Close();
+                this.Dispose();
                 form.Show();
             }
             else
@@ -47,9 +48,10 @@ namespace Sistema_MaterialContrucao
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            UsuarioLogado.usuario = null;
-            form.Close();
-            Close();
+            UsuarioModel uso = new UsuarioModel();
+            uso.Id = 0;
+            UsuarioLogado.usuario = uso;
+            Application.Exit();
         }
         
     }
