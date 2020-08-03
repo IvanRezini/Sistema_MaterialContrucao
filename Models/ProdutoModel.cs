@@ -12,6 +12,7 @@ namespace Sistema_MaterialContrucao.Models
         private string nome;
         private string descricao;
         private float valor;
+        private float margemLucro;//margem a ser aplicaada em cima do valor do produto para a venda
         private float quantidadeEstoque;
         private string unidade; //quantidade Kg L U
         private string fornecedor;
@@ -25,5 +26,6 @@ namespace Sistema_MaterialContrucao.Models
         public string Unidade { get => unidade; set => unidade = value; }
         public string Fornecedor { get => fornecedor; set => fornecedor = value; }
         public int Status { get => status; set => status = value; }
+        public float MargemLucro { get => margemLucro; set => margemLucro = value; }
     }
 }

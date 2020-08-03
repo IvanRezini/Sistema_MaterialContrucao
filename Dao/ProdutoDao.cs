@@ -1,6 +1,7 @@
 ﻿using Sistema_MaterialContrucao.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,9 @@ namespace Sistema_MaterialContrucao.Dao
             {
                 var vcon = conexaoBanco();
                 var cmd = vcon.CreateCommand();
-                cmd.CommandText = string.Format(@"INSERT INTO tbProduto (nome, descricao, valor, quantidadeEStoque, unidade, fornecedor,status
-                      )VALUES('{0}', '{1}', {2}, {3}, '{4}', '{5}',{6})",
-                      produto.Nome, produto.Descricao, 0, 0, produto.Unidade, produto.Fornecedor, 0);
+                cmd.CommandText = string.Format(@"INSERT INTO tbProduto (nome, descricao, valor, quantidadeEStoque, unidade, fornecedor, status, margemLucro
+                      )VALUES('{0}', '{1}', {2}, {3}, '{4}', '{5}',{6}, {7})",
+                      produto.Nome, produto.Descricao, 0, 0, produto.Unidade, produto.Fornecedor, 0, produto.MargemLucro);
 
                 da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                 cmd.ExecuteNonQueryAsync();
@@ -34,5 +35,47 @@ namespace Sistema_MaterialContrucao.Dao
             }
         }
 
+        public static DataTable ListaProduto()
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = conexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = @"SELECT * FROM tbProduto ORDER BY nome";
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw ex;
+            }
+
+        }
+        public static void alterarProduto(string id, int valor, int quantia, string lucro)
+        {
+            SQLiteDataAdapter da = null;
+            try
+            {
+                var vcon = conexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = string.Format(@"UPDATE tbProduto SET valor = {0}, margemLucro = {1}, quantidadeEStoque = {2}
+                        WHERE id = {3}", valor, lucro, quantia, id);
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQueryAsync();
+                vcon.Close();
+                MessageBox.Show("Cadastro atualiçado com suscesso");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha na atualização" + "\n" + ex.Message);
+                throw ex;
+            }
+        }
     }
 }
