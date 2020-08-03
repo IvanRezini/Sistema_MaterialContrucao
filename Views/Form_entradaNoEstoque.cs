@@ -22,14 +22,15 @@ namespace Sistema_MaterialContrucao.Views
 
         private void Form_entradaNoEstoque_Load(object sender, EventArgs e)
         {
-            dataGridView_Produto.DataSource = ProdutoController.preencherDataGridView();
-
-
-
             label_data.Text = Utilidades.obterData.ToString();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
-           // dataGridView_Produto.DataSource = ProdutoDao.ListaProduto();
+            this.popularDataGrid();
+            this.limparCampos();
+        }
+        private void popularDataGrid()
+        {
+            dataGridView_Produto.DataSource = ProdutoController.preencherDataGridView();
             dataGridView_Produto.AutoResizeColumn(0);
             dataGridView_Produto.AutoResizeColumn(1);
             dataGridView_Produto.AutoResizeColumn(3);
@@ -39,9 +40,25 @@ namespace Sistema_MaterialContrucao.Views
             dataGridView_Produto.AutoResizeColumn(7);
             dataGridView_Produto.Columns[2].Width = 100;
         }
+        private void limparCampos()
+        {
+            text_id.Clear();
+            text_desc.Clear();
+            text_entrada.Clear();
+            text_lucro.Clear();
+            text_novaMargemLucro.Clear();
+            text_novoValor.Clear();
+            text_produto.Clear();
+            text_quantia.Clear();
+            text_valor.Clear();
+            dataGridView_Produto.ClearSelection();
+            btn_salvar.Enabled = false;
+
+        }
 
         private void dataGridView_Produto_SelectionChanged(object sender, EventArgs e)
         {
+            btn_salvar.Enabled = true;
             DataGridView dgv = (DataGridView)sender;
             int contLinhas = dgv.SelectedRows.Count;
             if (contLinhas > 0)
@@ -76,8 +93,16 @@ namespace Sistema_MaterialContrucao.Views
 
             DialogResult res = MessageBox.Show("Quantidade: "+ novaQuantia + "\nValor: "+valor+"\nPorcentagem para a venda: "+lucro, "Salvar alterações?", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
-            { string resposta = "";
-                resposta = ProdutoController.alterarEstoque(text_id.Text, text_quantia.Text, valor, text_entrada.Text, lucro) ;
+            {
+                bool resposta;
+                if (resposta = ProdutoController.alterarEstoque(text_id.Text, text_quantia.Text, valor, novaQuantia, lucro)){
+                    this.popularDataGrid();
+                    this.limparCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Verifique se os valores estão coretos/nSe o erro persistir Contacte o suporte.","Falha ");
+                }
             }
         }
 
@@ -98,6 +123,24 @@ namespace Sistema_MaterialContrucao.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_sair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void text_entrada_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            this.limparCampos();
         }
     }
 }

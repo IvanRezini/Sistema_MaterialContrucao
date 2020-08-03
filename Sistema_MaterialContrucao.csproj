@@ -79,6 +79,12 @@
     <Compile Include="Dao\Conexao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Views\Form_editarExcluir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_editarExcluir.Designer.cs">
+      <DependentUpon>Form_editarExcluir.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form_entradaNoEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <Compile Include="Views\Form_gestaoDeUsuario.Designer.cs">
       <DependentUpon>Form_gestaoDeUsuario.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Form_editarExcluir.resx">
+      <DependentUpon>Form_editarExcluir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form_entradaNoEstoque.resx">
       <DependentUpon>Form_entradaNoEstoque.cs</DependentUpon>
     </EmbeddedResource>

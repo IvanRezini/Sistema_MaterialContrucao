@@ -43,6 +43,7 @@
             this.cadastroClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,9 +51,8 @@
             this.turmasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarExcluirtaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darEntradaNoEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -200,9 +200,15 @@
             // cadastroProdutoToolStripMenuItem
             // 
             this.cadastroProdutoToolStripMenuItem.Name = "cadastroProdutoToolStripMenuItem";
-            this.cadastroProdutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastroProdutoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.cadastroProdutoToolStripMenuItem.Text = "Cadastro";
             this.cadastroProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastroProdutoToolStripMenuItem_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.editarToolStripMenuItem.Text = "Editar";
             // 
             // manutençãoToolStripMenuItem
             // 
@@ -254,26 +260,21 @@
             this.gestãoDeUsuarioToolStripMenuItem.Text = "Gestão de usuário";
             this.gestãoDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeUsuarioToolStripMenuItem_Click);
             // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarToolStripMenuItem.Text = "Editar";
-            // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultaToolStripMenuItem,
+            this.editarExcluirtaToolStripMenuItem,
             this.darEntradaNoEstoqueToolStripMenuItem});
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
             this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             // 
-            // consultaToolStripMenuItem
+            // editarExcluirtaToolStripMenuItem
             // 
-            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.consultaToolStripMenuItem.Text = "Consulta";
+            this.editarExcluirtaToolStripMenuItem.Name = "editarExcluirtaToolStripMenuItem";
+            this.editarExcluirtaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.editarExcluirtaToolStripMenuItem.Text = "Editar\\Excluir";
+            this.editarExcluirtaToolStripMenuItem.Click += new System.EventHandler(this.editarExcluirtaToolStripMenuItem_Click);
             // 
             // darEntradaNoEstoqueToolStripMenuItem
             // 
@@ -291,7 +292,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Menu";
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.VisibleChanged += new System.EventHandler(this.FormPrincipal_VisibleChanged);
@@ -330,7 +331,7 @@
         private System.Windows.Forms.ToolStripMenuItem gestãoDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarExcluirtaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darEntradaNoEstoqueToolStripMenuItem;
     }
 }

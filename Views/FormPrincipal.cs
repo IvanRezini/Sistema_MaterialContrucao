@@ -76,5 +76,11 @@ namespace Sistema_MaterialContrucao.Views
             Form_entradaNoEstoque form_EntradaNoEstoque = new Form_entradaNoEstoque();
             form_EntradaNoEstoque.ShowDialog();
         }
+
+        private void editarExcluirtaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_editarExcluir form_EditarExcluir = new Form_editarExcluir();
+            form_EditarExcluir.ShowDialog();
+        }
     }
 }

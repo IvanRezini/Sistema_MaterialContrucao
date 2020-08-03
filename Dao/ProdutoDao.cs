@@ -57,25 +57,70 @@ namespace Sistema_MaterialContrucao.Dao
             }
 
         }
-        public static void alterarProduto(string id, int valor, int quantia, string lucro)
+        public static bool entradaDeValorEQuantia(string id, decimal valor, int quantia, string lucro)
         {
             SQLiteDataAdapter da = null;
             try
             {
                 var vcon = conexaoBanco();
                 var cmd = vcon.CreateCommand();
-                cmd.CommandText = string.Format(@"UPDATE tbProduto SET valor = {0}, margemLucro = {1}, quantidadeEStoque = {2}
-                        WHERE id = {3}", valor, lucro, quantia, id);
+                cmd.CommandText = string.Format(@"UPDATE tbProduto SET valor = '{0}', margemLucro = '{1}', quantidadeEStoque = '{2}'
+                        WHERE id = '{3}'", valor, lucro, quantia, id);
                 da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                 cmd.ExecuteNonQueryAsync();
                 vcon.Close();
                 MessageBox.Show("Cadastro atualiçado com suscesso");
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Falha na atualização" + "\n" + ex.Message);
+                return false;
                 throw ex;
             }
         }
+        public static void editarEBaixa(string id, string nome, string desc, string quantiaEstoque)
+        {
+            SQLiteDataAdapter da = null;
+            try
+            {
+                var vcon = conexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = string.Format(@"UPDATE tbProduto SET nome = '{0}', descricao = '{1}', quantidadeEStoque = '{2}'
+                        WHERE id = '{3}'", nome, desc, quantiaEstoque, id);
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQueryAsync();
+                vcon.Close();
+                MessageBox.Show("Cadastro atualiçado com suscesso");
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha na atualização" + "\n" + ex.Message);
+               throw ex;
+            }
+        }
+
+        public static void excluir(string id)
+        {
+            SQLiteDataAdapter da = null;
+            try
+            {
+                var vcon = conexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = string.Format(@"DELETE FROM tbProduto WHERE id = '{0}'", id);
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQueryAsync();
+                vcon.Close();
+                MessageBox.Show("Exclusão efetuada com suscesso");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha na exclusão" + "\n" + ex.Message);
+                throw ex;
+            }
+        }
+
     }
+
 }
