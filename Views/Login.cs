@@ -51,7 +51,8 @@ namespace Sistema_MaterialContrucao
             UsuarioModel uso = new UsuarioModel();
             uso.Id = 0;
             UsuarioLogado.usuario = uso;
-            Application.Exit();
+            EnvioEmail.envio();
+          //  Application.Exit();
         }
         
     }

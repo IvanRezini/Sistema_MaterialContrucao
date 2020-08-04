@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView_Produto = new System.Windows.Forms.DataGridView();
             this.text_motivoBaixa = new System.Windows.Forms.TextBox();
@@ -44,6 +44,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel_botoes = new System.Windows.Forms.Panel();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.btn_excluir = new System.Windows.Forms.Button();
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_salvar = new System.Windows.Forms.Button();
@@ -54,8 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label_versao = new System.Windows.Forms.Label();
-            this.btn_excluir = new System.Windows.Forms.Button();
-            this.btn_editar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -97,14 +97,14 @@
             // 
             this.dataGridView_Produto.AllowUserToAddRows = false;
             this.dataGridView_Produto.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Produto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Produto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_Produto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Produto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Produto.EnableHeadersVisualStyles = false;
@@ -289,6 +289,30 @@
             this.panel_botoes.Size = new System.Drawing.Size(800, 31);
             this.panel_botoes.TabIndex = 14;
             // 
+            // btn_editar
+            // 
+            this.btn_editar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_editar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_editar.Location = new System.Drawing.Point(372, 0);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(124, 31);
+            this.btn_editar.TabIndex = 5;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            // 
+            // btn_excluir
+            // 
+            this.btn_excluir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_excluir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_excluir.Location = new System.Drawing.Point(248, 0);
+            this.btn_excluir.Name = "btn_excluir";
+            this.btn_excluir.Size = new System.Drawing.Size(124, 31);
+            this.btn_excluir.TabIndex = 4;
+            this.btn_excluir.Text = "Excluir";
+            this.btn_excluir.UseVisualStyleBackColor = true;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
+            // 
             // btn_sair
             // 
             this.btn_sair.Dock = System.Windows.Forms.DockStyle.Right;
@@ -413,30 +437,6 @@
             this.label_versao.TabIndex = 1;
             this.label_versao.Text = "#####";
             this.label_versao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_excluir
-            // 
-            this.btn_excluir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_excluir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_excluir.Location = new System.Drawing.Point(248, 0);
-            this.btn_excluir.Name = "btn_excluir";
-            this.btn_excluir.Size = new System.Drawing.Size(124, 31);
-            this.btn_excluir.TabIndex = 4;
-            this.btn_excluir.Text = "Excluir";
-            this.btn_excluir.UseVisualStyleBackColor = true;
-            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_editar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_editar.Location = new System.Drawing.Point(372, 0);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(124, 31);
-            this.btn_editar.TabIndex = 5;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // Form_editarExcluir
             // 

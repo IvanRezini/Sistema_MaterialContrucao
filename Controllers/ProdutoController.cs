@@ -19,7 +19,7 @@ namespace Sistema_MaterialContrucao.Controllers
             dt = ProdutoDao.ListaProduto();
 
 
-            string[] pro = { "Codigo", "Produto", "Descrição", "Valor", "Margem de luccro", "Valor de venda", "Estoque", "Un", "Fornecedor" };
+            string[] pro = { "Codigo", "Produto", "Descrição", "Valor", "Margem de lucro", "Valor de venda", "Estoque", "Un", "Fornecedor" };
             //adiciona as colunas
             for (int i = 0; i < pro.Length; i++)
             {
@@ -41,8 +41,6 @@ namespace Sistema_MaterialContrucao.Controllers
 
                 prod.Rows.Add(pro);
             }
-
-
             return prod;
         }
         public static string salvar(ProdutoModel pro)
@@ -130,8 +128,6 @@ namespace Sistema_MaterialContrucao.Controllers
                 {
                     resposta = "Descreva o produto para facilitar sua indentificação";
                 }
-
-
             }
             else
             {
@@ -159,12 +155,10 @@ namespace Sistema_MaterialContrucao.Controllers
                 {
                     resposta = "Espesifique o motivo da baixa, e da exclusão";
                 }
-
             }
             else
             {
                 resposta = "Há uma quantia de produto em estoue.\nNão e possivel eexcluir o produto.\nPara continuar adicione o mesmo valor a quantia\ne uma descrição do motivo da baixa";
-
             }
 
             return resposta;

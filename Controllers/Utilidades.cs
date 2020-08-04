@@ -21,6 +21,9 @@ namespace Sistema_MaterialContrucao.Controllers
 
         public static string[] unidadeDeMedida = { "Kg", "LT", "M", "Un", "Cx" };//usada para popular o comboBox de unidade de produtos
 
+        public static string email = "ivan_rezini@hotmail.com"; //email usado para o enviu
+
+        public static string senha = "#######";//senha do email
         ///Validar email
         public static bool IsValidEmail(string email)
         {
