@@ -59,12 +59,6 @@ namespace Sistema_MaterialContrucao.Views
             login.Show();
         }
 
-        private void cadastroProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_CadastroProduto form_CadastroProduto = new Form_CadastroProduto();
-            form_CadastroProduto.ShowDialog();
-        }
-
         private void gestãoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_gestaoDeUsuario form_GestaoDeUsuario = new Form_gestaoDeUsuario();
@@ -81,6 +75,18 @@ namespace Sistema_MaterialContrucao.Views
         {
             Form_editarExcluir form_EditarExcluir = new Form_editarExcluir();
             form_EditarExcluir.ShowDialog();
+        }
+
+        private void cadastroDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_CadastroProduto form_CadastroProduto = new Form_CadastroProduto();
+            form_CadastroProduto.ShowDialog();
+        }
+
+        private void fazerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_realizarOrcamento form_RealizarOrcamento = new Form_realizarOrcamento();
+            form_RealizarOrcamento.ShowDialog();
         }
     }
 }

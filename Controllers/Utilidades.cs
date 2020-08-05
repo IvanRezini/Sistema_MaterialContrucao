@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Correios;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace Sistema_MaterialContrucao.Controllers
 {
@@ -139,6 +141,28 @@ namespace Sistema_MaterialContrucao.Controllers
             {
             }
             return end;
+        }
+        /// <summary>
+        /// //Formatação do dataGridView para todos terem o mesmo padrão
+        /// </summary>
+        /// <param name="dg"></param>
+        /// <returns></returns>
+        public static DataGridView Grade(DataGridView dg)
+        {
+            dg.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dg.AllowUserToAddRows = false;
+            dg.AllowUserToDeleteRows = false;
+            dg.DefaultCellStyle.Font = new Font("Calibri", 9);
+            dg.EnableHeadersVisualStyles = false; // Desabilita formatação padrão
+            dg.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+            dg.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
+            dg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dg.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dg.RowsDefaultCellStyle.BackColor = Color.LightCyan;
+            dg.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
+            dg.MultiSelect = false;
+            return dg;
         }
 
     }

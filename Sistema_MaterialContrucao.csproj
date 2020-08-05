@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EnvioEmail.cs" />
+    <Compile Include="Controllers\OrcamentoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\UsuarioLogado.cs" />
     <Compile Include="Controllers\UsurioController.cs" />
@@ -91,6 +92,12 @@
     </Compile>
     <Compile Include="Views\Form_entradaNoEstoque.Designer.cs">
       <DependentUpon>Form_entradaNoEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Form_realizarOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_realizarOrcamento.Designer.cs">
+      <DependentUpon>Form_realizarOrcamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -132,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form_entradaNoEstoque.resx">
       <DependentUpon>Form_entradaNoEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form_realizarOrcamento.resx">
+      <DependentUpon>Form_realizarOrcamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

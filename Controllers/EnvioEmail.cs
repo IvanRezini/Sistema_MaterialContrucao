@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -13,7 +12,7 @@ namespace Sistema_MaterialContrucao.Controllers
 {
     class EnvioEmail
     {
-        public static void envio()
+        public static void envio(string endereco, string orcamento)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -25,15 +24,15 @@ namespace Sistema_MaterialContrucao.Controllers
                     cliente.ServicePoint.MaxIdleTime = 1;
 
                     // Cria uma instancia de propiedades como endereco do destinatario e remetente e mensagem
-                    MailAddress remetente = new MailAddress(Utilidades.email, "Orçamento Online - Safety Tecnologia");
-                    MailAddress destinatario = new MailAddress("ivan_resini@estudante.sc.senai.br", "objEmail._nome.ToString()");
+                    MailAddress remetente = new MailAddress(Utilidades.email, "Orçamento Online");
+                    MailAddress destinatario = new MailAddress(endereco);
                     MailMessage mensagem = new MailMessage(remetente, destinatario);
 
                     // Criar uma String da mensagem enviada
                     StringBuilder texto = new StringBuilder();
-                    texto.Append("Mensagem");
+                    texto.Append(orcamento);
                     mensagem.Body = texto.ToString();
-                    mensagem.Subject = "Solicitação de Orçamentos ::. " + "objEmail._nome.ToString()";
+                    mensagem.Subject = "Solicitação de Orçamentos ::. ";
 
                     // Cria uma autenticação com Usuario e Senha de seu email de envio
                     NetworkCredential credenciais = new NetworkCredential(Utilidades.email, Utilidades.senha, "");

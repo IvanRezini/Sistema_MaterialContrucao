@@ -109,11 +109,8 @@ namespace Sistema_MaterialContrucao.Views
         private void text_novoValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)
-
             {
-
                 e.Handled = true;
-
             }
         }
 
