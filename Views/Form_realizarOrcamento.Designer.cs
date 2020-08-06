@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.label_pedido = new System.Windows.Forms.Label();
@@ -60,6 +60,8 @@
             this.text_desconto = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel_botoes = new System.Windows.Forms.Panel();
+            this.btn_enviarPorEmail = new System.Windows.Forms.Button();
+            this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_salvar = new System.Windows.Forms.Button();
@@ -138,7 +140,8 @@
             this.label_pedido.Name = "label_pedido";
             this.label_pedido.Size = new System.Drawing.Size(50, 24);
             this.label_pedido.TabIndex = 3;
-            this.label_pedido.Text = "####";
+            this.label_pedido.Text = "0000";
+            this.label_pedido.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label5
             // 
@@ -173,14 +176,14 @@
             // 
             this.dataGridView_Produto.AllowUserToAddRows = false;
             this.dataGridView_Produto.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Produto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Produto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_Produto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Produto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Produto.EnableHeadersVisualStyles = false;
@@ -415,14 +418,14 @@
             // 
             this.dataGridView_pedido.AllowUserToAddRows = false;
             this.dataGridView_pedido.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_pedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_pedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView_pedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_pedido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_pedido.EnableHeadersVisualStyles = false;
@@ -518,6 +521,8 @@
             // 
             // panel_botoes
             // 
+            this.panel_botoes.Controls.Add(this.btn_enviarPorEmail);
+            this.panel_botoes.Controls.Add(this.btn_imprimir);
             this.panel_botoes.Controls.Add(this.btn_sair);
             this.panel_botoes.Controls.Add(this.btn_cancelar);
             this.panel_botoes.Controls.Add(this.btn_salvar);
@@ -526,6 +531,30 @@
             this.panel_botoes.Name = "panel_botoes";
             this.panel_botoes.Size = new System.Drawing.Size(1046, 31);
             this.panel_botoes.TabIndex = 14;
+            // 
+            // btn_enviarPorEmail
+            // 
+            this.btn_enviarPorEmail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_enviarPorEmail.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_enviarPorEmail.Location = new System.Drawing.Point(372, 0);
+            this.btn_enviarPorEmail.Name = "btn_enviarPorEmail";
+            this.btn_enviarPorEmail.Size = new System.Drawing.Size(124, 31);
+            this.btn_enviarPorEmail.TabIndex = 5;
+            this.btn_enviarPorEmail.Text = "Enviar por email";
+            this.btn_enviarPorEmail.UseVisualStyleBackColor = true;
+            this.btn_enviarPorEmail.Click += new System.EventHandler(this.btn_enviarPorEmail_Click);
+            // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_imprimir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_imprimir.Location = new System.Drawing.Point(248, 0);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.Size = new System.Drawing.Size(124, 31);
+            this.btn_imprimir.TabIndex = 4;
+            this.btn_imprimir.Text = "Imprimir";
+            this.btn_imprimir.UseVisualStyleBackColor = true;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // btn_sair
             // 
@@ -735,5 +764,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox text_desconto;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btn_enviarPorEmail;
+        private System.Windows.Forms.Button btn_imprimir;
     }
 }

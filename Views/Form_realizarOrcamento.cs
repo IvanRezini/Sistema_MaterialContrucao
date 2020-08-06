@@ -111,29 +111,7 @@ namespace Sistema_MaterialContrucao.Views
                 e.Handled = true;
             }
         }
-        private void btn_salvar_Click(object sender, EventArgs e)
-        {
-            List<string[]> pedido = new List<string[]>();
-            int cont = dataGridView_pedido.Rows.Count;
-            for (int i = 0; i <cont; i++)
-            {
-                string[] linha=new string[4];
-                linha[0]=dataGridView_pedido.Rows[i].Cells[0].Value.ToString();
-                linha[1] = dataGridView_pedido.Rows[i].Cells[1].Value.ToString();
-                linha[2] = dataGridView_pedido.Rows[i].Cells[2].Value.ToString();
-                linha[3] = dataGridView_pedido.Rows[i].Cells[3].Value.ToString();
-                pedido.Add(linha);
-            }
-            for (int i = 0; i < pedido.Count; i++)
-            {
-                Console.WriteLine("\n\n");
-                for (int p = 0; p < pedido[i].Length; p++)
-                {
-                    Console.WriteLine(pedido[i][p]);
-                }
-            }
-
-        }
+        
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Se vc cancelar perdera todos os dados", "Continuar?", MessageBoxButtons.YesNo);
@@ -165,6 +143,39 @@ namespace Sistema_MaterialContrucao.Views
             text_valor.Clear();
             dataGridView_pedido.Rows.Clear();
 
+        }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            List<string[]> pedido = this.obterDadosPedido();
+
+        }
+
+        private void btn_enviarPorEmail_Click(object sender, EventArgs e)
+        {
+            List<string[]> pedido = this.obterDadosPedido();
+        }
+        private void btn_salvar_Click(object sender, EventArgs e)
+        {
+            List<string[]> pedido = this.obterDadosPedido();
+            OrcamentoController.salvarOrcamento(pedido, comboBox_cliente.Text, label_pedido.Text, text_desconto.Text.Trim());
+        }
+        public List<string[]> obterDadosPedido()
+        {
+            List<string[]> pedido = new List<string[]>();
+            int cont = dataGridView_pedido.Rows.Count;
+            for (int i = 0; i < cont; i++)
+            {
+                string[] linha = new string[5];
+                linha[0] = dataGridView_pedido.Rows[i].Cells[0].Value.ToString();
+                linha[1] = dataGridView_pedido.Rows[i].Cells[1].Value.ToString();
+                linha[2] = dataGridView_pedido.Rows[i].Cells[2].Value.ToString();
+                linha[3] = dataGridView_pedido.Rows[i].Cells[3].Value.ToString();
+                linha[4] = dataGridView_pedido.Rows[i].Cells[4].Value.ToString();
+                pedido.Add(linha);
+            }
+            
+            return pedido;
         }
     }
 }
