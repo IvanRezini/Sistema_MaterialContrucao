@@ -21,21 +21,23 @@ namespace Sistema_MaterialContrucao.Views
 
             login.ShowDialog();
             InitializeComponent();
-  
+            
         }
         private void FormPrincipal_Shown(object sender, EventArgs e)
         {
-                label_data.Text = Utilidades.obterData.ToString();
-                label_usuario.Text = UsuarioLogado.usuario.Nome;
-                label_versao.Text = Versao.versao;
-            
+            timer1.Start();
+            label_data.Text = Utilidades.obterData();
+            label_usuario.Text = UsuarioLogado.usuario.Nome;
+            label_versao.Text = Versao.versao;
+
         }
         private void FormPrincipal_VisibleChanged(object sender, EventArgs e)
         {
-            if(UsuarioLogado.usuario.Id >0)
-                label_data.Text = Utilidades.obterData.ToString();
-                label_usuario.Text = UsuarioLogado.usuario.Nome;
-                label_versao.Text = Versao.versao;
+            if (UsuarioLogado.usuario.Id > 0)
+                timer1.Start();
+            label_data.Text = Utilidades.obterData();
+            label_usuario.Text = UsuarioLogado.usuario.Nome;
+            label_versao.Text = Versao.versao;
         }
 
 
@@ -87,6 +89,16 @@ namespace Sistema_MaterialContrucao.Views
         {
             Form_realizarOrcamento form_RealizarOrcamento = new Form_realizarOrcamento();
             form_RealizarOrcamento.ShowDialog();
+        }
+
+
+        int i;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            label_data.Text = Utilidades.obterData() + " " + i;
+            i++;
+
         }
     }
 }

@@ -22,7 +22,8 @@ namespace Sistema_MaterialContrucao.Views
 
         private void Form_entradaNoEstoque_Load(object sender, EventArgs e)
         {
-            label_data.Text = Utilidades.obterData.ToString();
+            timer1.Start();
+            label_data.Text = Utilidades.obterData();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
             this.popularDataGrid();
@@ -138,6 +139,11 @@ namespace Sistema_MaterialContrucao.Views
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.limparCampos();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label_data.Text = Utilidades.obterData();
         }
     }
 }

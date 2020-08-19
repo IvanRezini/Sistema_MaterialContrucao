@@ -16,7 +16,7 @@ namespace Sistema_MaterialContrucao.Dao
 
         public static SQLiteConnection conexaoBanco()
         {
-            conexao = new SQLiteConnection("Data Source=" + Utilidades.caminhoBanco + Utilidades.nomeBanco);
+            conexao = new SQLiteConnection("Data Source=" + ConfiguracoesController.caminhoBanco + ConfiguracoesController.nomeBanco);
             conexao.Open();
             return conexao;
         }

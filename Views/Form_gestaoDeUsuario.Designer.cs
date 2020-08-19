@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_gestaoDeUsuario));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_rodape = new System.Windows.Forms.Panel();
@@ -60,6 +61,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_rodape.SuspendLayout();
             this.panel_botoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -291,6 +293,11 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form_gestaoDeUsuario
             // 
             resources.ApplyResources(this, "$this");
@@ -346,5 +353,6 @@
         private System.Windows.Forms.MaskedTextBox text_telefone;
         private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.ComboBox comboBox_tipo;
+        private System.Windows.Forms.Timer timer1;
     }
 }

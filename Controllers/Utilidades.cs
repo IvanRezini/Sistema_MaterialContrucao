@@ -13,19 +13,23 @@ namespace Sistema_MaterialContrucao.Controllers
 {
     class Utilidades
     {
-        public static string caminho = System.Environment.CurrentDirectory;//lista o caminho do executavel
+        public static string data(string mascara)
+        {
+            string data = DateTime.Now.ToString(mascara);//obeter data atual
 
-        public static string nomeBanco = "banco.db";
+            return data;
+        }
 
-        public static string caminhoBanco = caminho + @"\banco\";
 
-        public static string obterData = DateTime.Now.ToString("dd-MM-yyyy  HH:mm");//obeter data atual
+        public static string obterData() {
+            return data("dd-MM-yyyy HH:mm");//obeter data atual para as telas    
+        }
 
-        public static string[] unidadeDeMedida = { "Kg", "LT", "M", "Un", "Cx" };//usada para popular o comboBox de unidade de produtos
+        public static string dataParaBanco()//obeter data atual
+        {
+            return data("yyyy-MM-dd HH:mm:ss.ffff");
+        }
 
-        public static string email = "ivan_rezini@hotmail.com"; //email usado para o enviu
-
-        public static string senha = "#######";//senha do email
         ///Validar email
         public static bool IsValidEmail(string email)
         {

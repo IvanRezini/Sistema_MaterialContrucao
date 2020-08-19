@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_data = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,19 +42,20 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestãoDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarExcluirtaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darEntradaNoEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.professoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestãoDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarExcluirtaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darEntradaNoEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroDeProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fazerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +190,52 @@
             this.cadastroClienteToolStripMenuItem.Text = "Gestao de cliente";
             this.cadastroClienteToolStripMenuItem.Click += new System.EventHandler(this.cadastroClienteToolStripMenuItem_Click);
             // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestãoDeUsuarioToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            // 
+            // gestãoDeUsuarioToolStripMenuItem
+            // 
+            this.gestãoDeUsuarioToolStripMenuItem.Name = "gestãoDeUsuarioToolStripMenuItem";
+            this.gestãoDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.gestãoDeUsuarioToolStripMenuItem.Text = "Gestão de usuário";
+            this.gestãoDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeUsuarioToolStripMenuItem_Click);
+            // 
+            // estoqueToolStripMenuItem
+            // 
+            this.estoqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroDeProdutoToolStripMenuItem,
+            this.editarExcluirtaToolStripMenuItem,
+            this.darEntradaNoEstoqueToolStripMenuItem});
+            this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.estoqueToolStripMenuItem.Text = "Estoque";
+            // 
+            // cadastroDeProdutoToolStripMenuItem
+            // 
+            this.cadastroDeProdutoToolStripMenuItem.Name = "cadastroDeProdutoToolStripMenuItem";
+            this.cadastroDeProdutoToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.cadastroDeProdutoToolStripMenuItem.Text = "Cadastro de produto";
+            this.cadastroDeProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeProdutoToolStripMenuItem_Click);
+            // 
+            // editarExcluirtaToolStripMenuItem
+            // 
+            this.editarExcluirtaToolStripMenuItem.Name = "editarExcluirtaToolStripMenuItem";
+            this.editarExcluirtaToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.editarExcluirtaToolStripMenuItem.Text = "Editar\\Excluir";
+            this.editarExcluirtaToolStripMenuItem.Click += new System.EventHandler(this.editarExcluirtaToolStripMenuItem_Click);
+            // 
+            // darEntradaNoEstoqueToolStripMenuItem
+            // 
+            this.darEntradaNoEstoqueToolStripMenuItem.Name = "darEntradaNoEstoqueToolStripMenuItem";
+            this.darEntradaNoEstoqueToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.darEntradaNoEstoqueToolStripMenuItem.Text = "Dar entrada no estoque  valor/quantia";
+            this.darEntradaNoEstoqueToolStripMenuItem.Click += new System.EventHandler(this.darEntradaNoEstoqueToolStripMenuItem_Click);
+            // 
             // manutençãoToolStripMenuItem
             // 
             this.manutençãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -223,52 +271,6 @@
             this.turmasToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.turmasToolStripMenuItem.Text = "Turmas";
             // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestãoDeUsuarioToolStripMenuItem});
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
-            // 
-            // gestãoDeUsuarioToolStripMenuItem
-            // 
-            this.gestãoDeUsuarioToolStripMenuItem.Name = "gestãoDeUsuarioToolStripMenuItem";
-            this.gestãoDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.gestãoDeUsuarioToolStripMenuItem.Text = "Gestão de usuário";
-            this.gestãoDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeUsuarioToolStripMenuItem_Click);
-            // 
-            // estoqueToolStripMenuItem
-            // 
-            this.estoqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroDeProdutoToolStripMenuItem,
-            this.editarExcluirtaToolStripMenuItem,
-            this.darEntradaNoEstoqueToolStripMenuItem});
-            this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.estoqueToolStripMenuItem.Text = "Estoque";
-            // 
-            // editarExcluirtaToolStripMenuItem
-            // 
-            this.editarExcluirtaToolStripMenuItem.Name = "editarExcluirtaToolStripMenuItem";
-            this.editarExcluirtaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.editarExcluirtaToolStripMenuItem.Text = "Editar\\Excluir";
-            this.editarExcluirtaToolStripMenuItem.Click += new System.EventHandler(this.editarExcluirtaToolStripMenuItem_Click);
-            // 
-            // darEntradaNoEstoqueToolStripMenuItem
-            // 
-            this.darEntradaNoEstoqueToolStripMenuItem.Name = "darEntradaNoEstoqueToolStripMenuItem";
-            this.darEntradaNoEstoqueToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.darEntradaNoEstoqueToolStripMenuItem.Text = "Dar entrada no estoque  valor/quantia";
-            this.darEntradaNoEstoqueToolStripMenuItem.Click += new System.EventHandler(this.darEntradaNoEstoqueToolStripMenuItem_Click);
-            // 
-            // cadastroDeProdutoToolStripMenuItem
-            // 
-            this.cadastroDeProdutoToolStripMenuItem.Name = "cadastroDeProdutoToolStripMenuItem";
-            this.cadastroDeProdutoToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.cadastroDeProdutoToolStripMenuItem.Text = "Cadastro de produto";
-            this.cadastroDeProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeProdutoToolStripMenuItem_Click);
-            // 
             // orçamentoToolStripMenuItem
             // 
             this.orçamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -280,9 +282,14 @@
             // fazerToolStripMenuItem
             // 
             this.fazerToolStripMenuItem.Name = "fazerToolStripMenuItem";
-            this.fazerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fazerToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.fazerToolStripMenuItem.Text = "Fazer";
             this.fazerToolStripMenuItem.Click += new System.EventHandler(this.fazerToolStripMenuItem_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormPrincipal
             // 
@@ -334,5 +341,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeProdutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orçamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fazerToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }

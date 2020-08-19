@@ -21,10 +21,11 @@ namespace Sistema_MaterialContrucao.Views
 
         private void Form_CadastroProduto_Load(object sender, EventArgs e)
         {
-            label_data.Text = Utilidades.obterData.ToString();
+            label_data.Text = Utilidades.obterData();
+            timer1.Start();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
-            comboBox_unidadeMedida.DataSource = Utilidades.unidadeDeMedida;
+            comboBox_unidadeMedida.DataSource = ConfiguracoesController.unidadeDeMedida;
             textBox_nome.Focus();
         }
         private void limparCampos()
@@ -67,6 +68,11 @@ namespace Sistema_MaterialContrucao.Views
         private void btn_sair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label_data.Text = Utilidades.obterData();
         }
     }
 }

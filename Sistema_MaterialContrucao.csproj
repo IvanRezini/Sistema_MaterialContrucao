@@ -83,8 +83,11 @@
     <Compile Include="Controllers\Versao.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\Conexao.cs" />
+    <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Models\ItensPedidoModel.cs" />
+    <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Views\Form_editarExcluir.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel_rodape = new System.Windows.Forms.Panel();
             this.label_data = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.textBox_nome = new System.Windows.Forms.TextBox();
             this.textBox_descricao = new System.Windows.Forms.TextBox();
             this.textBox_fornecedor = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_rodape.SuspendLayout();
             this.panel_botoes.SuspendLayout();
             this.SuspendLayout();
@@ -280,6 +282,11 @@
             this.textBox_fornecedor.Size = new System.Drawing.Size(190, 26);
             this.textBox_fornecedor.TabIndex = 3;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form_CadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,5 +336,6 @@
         private System.Windows.Forms.TextBox textBox_nome;
         private System.Windows.Forms.TextBox textBox_descricao;
         private System.Windows.Forms.TextBox textBox_fornecedor;
+        private System.Windows.Forms.Timer timer1;
     }
 }

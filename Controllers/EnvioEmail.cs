@@ -24,7 +24,7 @@ namespace Sistema_MaterialContrucao.Controllers
                     cliente.ServicePoint.MaxIdleTime = 1;
 
                     // Cria uma instancia de propiedades como endereco do destinatario e remetente e mensagem
-                    MailAddress remetente = new MailAddress(Utilidades.email, "Orçamento Online");
+                    MailAddress remetente = new MailAddress(ConfiguracoesController.email, "Orçamento Online");
                     MailAddress destinatario = new MailAddress(endereco);
                     MailMessage mensagem = new MailMessage(remetente, destinatario);
 
@@ -35,7 +35,7 @@ namespace Sistema_MaterialContrucao.Controllers
                     mensagem.Subject = "Solicitação de Orçamentos ::. ";
 
                     // Cria uma autenticação com Usuario e Senha de seu email de envio
-                    NetworkCredential credenciais = new NetworkCredential(Utilidades.email, Utilidades.senha, "");
+                    NetworkCredential credenciais = new NetworkCredential(ConfiguracoesController.email, ConfiguracoesController.senha, "");
                     cliente.Credentials = credenciais;
                     System.Net.ServicePointManager.Expect100Continue = false;
 

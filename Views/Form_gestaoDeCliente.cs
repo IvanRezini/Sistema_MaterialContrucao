@@ -23,8 +23,9 @@ namespace Sistema_MaterialContrucao.Views
         }
         private void Form_gestaoDeCliente_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             this.popularDataGrid();
-            label_data.Text = Utilidades.obterData.ToString();
+            label_data.Text = Utilidades.obterData();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
             dataGridView_Cliente.Enabled = false;
@@ -156,6 +157,8 @@ namespace Sistema_MaterialContrucao.Views
                     btn_excluir.Visible = false;
                     btn_editar.Visible = true;
                     btn_novo.Visible = true;
+                    dataGridView_Cliente.Enabled = false;
+                    dataGridView_Cliente.ClearSelection();
                 }
             }
             else
@@ -205,6 +208,11 @@ namespace Sistema_MaterialContrucao.Views
                 text_numero.Text = dgv.SelectedRows[0].Cells[8].Value.ToString();
                 text_email.Text = dgv.SelectedRows[0].Cells[9].Value.ToString();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label_data.Text = Utilidades.obterData();
         }
     }
 }

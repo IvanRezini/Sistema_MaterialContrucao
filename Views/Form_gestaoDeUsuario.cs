@@ -22,8 +22,9 @@ namespace Sistema_MaterialContrucao.Views
 
         private void Form_gestaoDeUsuario_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            label_data.Text = Utilidades.obterData();
             this.popularDataGrid();
-            label_data.Text = Utilidades.obterData.ToString();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
             dataGridView_usuario.Enabled = false;
@@ -174,6 +175,11 @@ namespace Sistema_MaterialContrucao.Views
             dataGridView_usuario.Enabled = false;
             this.limparCampos();
             this.ocultarCampos();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label_data.Text = Utilidades.obterData();
         }
     }
 }

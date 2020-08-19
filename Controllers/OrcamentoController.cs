@@ -140,6 +140,11 @@ namespace Sistema_MaterialContrucao.Controllers
 
         }
 
+        public void salvarPedidoBanco(List<string[]> pedido, string codCliente, string codPedido, string desconto)
+        {
+
+        }
+
 
     }
 }

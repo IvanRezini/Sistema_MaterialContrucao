@@ -84,7 +84,7 @@ namespace Sistema_MaterialContrucao.Dao
             {
                 var vcon = conexaoBanco();
                 var cmd = vcon.CreateCommand();
-                cmd.CommandText = string.Format(@"DELETE FROM tbCliente WHERE id = = {0}", id);
+                cmd.CommandText = string.Format(@"DELETE FROM tbCliente WHERE id = {0}", id);
                 da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                 cmd.ExecuteNonQueryAsync();
                 vcon.Close();
