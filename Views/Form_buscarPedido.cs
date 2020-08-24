@@ -38,5 +38,9 @@ namespace Sistema_MaterialContrucao.Views
         {
                 label_data.Text = Utilidades.obterData();
         }
+        private void comboBox_cliente_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView_Pedido.DataSource = OrcamentoController.pedidoCliente(comboBox_cliente.Text);
+        }
     }
 }

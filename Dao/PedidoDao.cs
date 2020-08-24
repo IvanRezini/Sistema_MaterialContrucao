@@ -51,9 +51,10 @@ namespace Sistema_MaterialContrucao.Dao
                 var cmd = vcon.CreateCommand();
                 foreach (string[] item in itenPedido)
                 {
+                    string valor =( decimal.Parse(item[3]) * 100).ToString();
                     cmd.CommandText = string.Format(@"INSERT INTO tbItensPedido (idPedido, idProduto, quantia, valor)
                           VALUES ('{0}', '{1}', '{2}', '{3}')",
-                          pedido, item[0], item[2], item[3]);
+                          pedido, item[0], item[2], valor);
                     da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                     cmd.ExecuteNonQueryAsync();
                 }
@@ -92,7 +93,7 @@ namespace Sistema_MaterialContrucao.Dao
             {
                 var vcon = conexaoBanco();
                 var cmd = vcon.CreateCommand();
-                cmd.CommandText = @"SELECT tbPedido.id, tbCliente.nome
+                cmd.CommandText = @"SELECT tbPedido.id, tbCliente.nome, tbPedido.data
                                       FROM tbPedido INNER JOIN tbCliente
                                       ON tbPedido.idCliente = tbCliente.id
                                       ORDER BY data DESC";
@@ -126,7 +127,31 @@ namespace Sistema_MaterialContrucao.Dao
                 throw ex;
             }
         }
+        public static DataTable ListaItensPedido(int cod)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = conexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = string.Format(@"SELECT tbItensPedido.idProduto, tbProduto.nome, tbItensPedido.quantia,tbItensPedido.valor, tbPedido.desconto
+                                      FROM tbItensPedido INNER JOIN tbProduto
+                                      ON tbItensPedido.idProduto = tbProduto.id
+                                      INNER JOIN tbPedido ON tbItensPedido.idPedido = tbPedido.id
+                                      WHERE  tbItensPedido.idPedido = {0}",cod);
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha na obteñção dos pedidos");
+                throw ex;
+            }
+
+        }
     }
-    
 }
