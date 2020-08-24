@@ -152,7 +152,6 @@ namespace Sistema_MaterialContrucao.Controllers
             }
             codCliente = codCliente.Trim();
             string[] cod = codCliente.Split(' ');
-            Console.WriteLine("\n\n\n\n" + cod[0] + "\n"+cod[1] + "\n\n");
             PedidoDao.atualisarPedidoCriado(codPedido, cod[0], desconto);
             PedidoDao.salvarPedido(codPedido, pedido);
         }
@@ -167,6 +166,11 @@ namespace Sistema_MaterialContrucao.Controllers
                 cliente.Add(linha[0].ToString() + " - " + linha[1].ToString());
             }
             return cliente;
+        }
+        public static void excluirPedido(string cod)
+        {
+            int codigo = Int32.Parse(cod);
+            PedidoDao.excuir(codigo);
         }
 
     }

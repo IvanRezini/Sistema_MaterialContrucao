@@ -1,4 +1,5 @@
 ﻿using Sistema_MaterialContrucao.Controllers;
+using Sistema_MaterialContrucao.Views;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -52,7 +53,7 @@ namespace Sistema_MaterialContrucao.Dao
                 {
                     cmd.CommandText = string.Format(@"INSERT INTO tbItensPedido (idPedido, idProduto, quantia, valor)
                           VALUES ('{0}', '{1}', '{2}', '{3}')",
-                          pedido,item[0],item[2],item[3]);
+                          pedido, item[0], item[2], item[3]);
                     da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                     cmd.ExecuteNonQueryAsync();
                 }
@@ -107,6 +108,23 @@ namespace Sistema_MaterialContrucao.Dao
                 throw ex;
             }
 
+        }
+        public static void excuir(int cod)
+        {
+            SQLiteDataAdapter da = null;
+            try
+            {
+                var vcon = conexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = string.Format(@"DELETE FROM tbPedido WHERE id = {0}", cod);
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQueryAsync();
+                vcon.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

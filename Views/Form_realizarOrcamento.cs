@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -121,13 +122,15 @@ namespace Sistema_MaterialContrucao.Views
                 e.Handled = true;
             }
         }
-        
+
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Se vc cancelar perdera todos os dados", "Continuar?", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
+                OrcamentoController.excluirPedido(label_pedido.Text);
                 this.limparCampos();
+                label_pedido.Text = PedidoDao.insertNovoPedido();
             }
         }
 
@@ -136,6 +139,7 @@ namespace Sistema_MaterialContrucao.Views
             DialogResult res = MessageBox.Show("Se vc sair perdera todos os dados", "Continuar?", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
+                OrcamentoController.excluirPedido(label_pedido.Text);
                 this.limparCampos();
                 this.Close();
             }
@@ -158,48 +162,57 @@ namespace Sistema_MaterialContrucao.Views
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
             List<string[]> pedido = this.obterDadosPedido();
+            if (pedido.Count > 0)
+            { 
 
+            }
         }
 
         private void btn_enviarPorEmail_Click(object sender, EventArgs e)
         {
             List<string[]> pedido = this.obterDadosPedido();
+            if (pedido.Count > 0)
+            {
+
+            }
         }
         private void btn_salvar_Click(object sender, EventArgs e)
         {
+            List<string[]> pedido = this.obterDadosPedido();
+            if (pedido.Count > 0)
+            {
+                OrcamentoController.salvarOrcamento(pedido, comboBox_cliente.Text, label_pedido.Text, text_desconto.Text.Trim());
+            }
+        }
+        public List<string[]> obterDadosPedido()
+        {
+
+            List<string[]> pedido = new List<string[]>();
             if (comboBox_cliente.Text.Trim() != "")
             {
                 if (dataGridView_pedido.Rows.Count > 0)
                 {
-                    List<string[]> pedido = this.obterDadosPedido();
-                    OrcamentoController.salvarOrcamento(pedido, comboBox_cliente.Text, label_pedido.Text, text_desconto.Text.Trim());
-
+                    int cont = dataGridView_pedido.Rows.Count;
+                    for (int i = 0; i < cont; i++)
+                    {
+                        string[] linha = new string[5];
+                        linha[0] = dataGridView_pedido.Rows[i].Cells[0].Value.ToString();
+                        linha[1] = dataGridView_pedido.Rows[i].Cells[1].Value.ToString();
+                        linha[2] = dataGridView_pedido.Rows[i].Cells[2].Value.ToString();
+                        linha[3] = dataGridView_pedido.Rows[i].Cells[3].Value.ToString();
+                        linha[4] = dataGridView_pedido.Rows[i].Cells[4].Value.ToString();
+                        pedido.Add(linha);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Este pedido não esta vazio");
+                    MessageBox.Show("Este pedido está vazio");
                 }
             }
             else
             {
                 MessageBox.Show("Selecione um cliente");
             }
-            }
-        public List<string[]> obterDadosPedido()
-        {
-            List<string[]> pedido = new List<string[]>();
-            int cont = dataGridView_pedido.Rows.Count;
-            for (int i = 0; i < cont; i++)
-            {
-                string[] linha = new string[5];
-                linha[0] = dataGridView_pedido.Rows[i].Cells[0].Value.ToString();
-                linha[1] = dataGridView_pedido.Rows[i].Cells[1].Value.ToString();
-                linha[2] = dataGridView_pedido.Rows[i].Cells[2].Value.ToString();
-                linha[3] = dataGridView_pedido.Rows[i].Cells[3].Value.ToString();
-                linha[4] = dataGridView_pedido.Rows[i].Cells[4].Value.ToString();
-                pedido.Add(linha);
-            }
-            
             return pedido;
         }
 
@@ -226,6 +239,21 @@ namespace Sistema_MaterialContrucao.Views
             if (res == DialogResult.Yes)
             {
                 dataGridView_pedido.Rows.Remove(dataGridView_pedido.CurrentRow);
+            }
+        }
+
+        private void Form_realizarOrcamento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Se vc sair perdera todos os dados", "Continuar?", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                OrcamentoController.excluirPedido(label_pedido.Text);
+                this.limparCampos();
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }
