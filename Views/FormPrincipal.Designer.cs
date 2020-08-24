@@ -56,6 +56,7 @@
             this.orçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fazerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -274,7 +275,8 @@
             // orçamentoToolStripMenuItem
             // 
             this.orçamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fazerToolStripMenuItem});
+            this.fazerToolStripMenuItem,
+            this.pedidosToolStripMenuItem});
             this.orçamentoToolStripMenuItem.Name = "orçamentoToolStripMenuItem";
             this.orçamentoToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.orçamentoToolStripMenuItem.Text = "Orçamento";
@@ -282,7 +284,7 @@
             // fazerToolStripMenuItem
             // 
             this.fazerToolStripMenuItem.Name = "fazerToolStripMenuItem";
-            this.fazerToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.fazerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fazerToolStripMenuItem.Text = "Fazer";
             this.fazerToolStripMenuItem.Click += new System.EventHandler(this.fazerToolStripMenuItem_Click);
             // 
@@ -290,6 +292,13 @@
             // 
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pedidosToolStripMenuItem
+            // 
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pedidosToolStripMenuItem.Text = "Pedidos";
+            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -342,5 +351,6 @@
         private System.Windows.Forms.ToolStripMenuItem orçamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fazerToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
     }
 }

@@ -12,7 +12,7 @@ namespace Sistema_MaterialContrucao.Dao
 {
     class ProdutoDao : Conexao
     {
-        public static void insert(ProdutoModel produto)//Data Manipulation Language (insert, Delete, update)
+        public static void insert(ProdutoModel produto)//Data Manipulation Language (insertNovoPedido, Delete, update)
         {
             SQLiteDataAdapter da = null;
             try

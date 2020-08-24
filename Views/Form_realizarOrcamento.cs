@@ -1,4 +1,5 @@
 ﻿using Sistema_MaterialContrucao.Controllers;
+using Sistema_MaterialContrucao.Dao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace Sistema_MaterialContrucao.Views
 
         private void Form_realizarOrcamento_Load(object sender, EventArgs e)
         {
+            label_pedido.Text = PedidoDao.insertNovoPedido();
             timer1.Start();
             label_data.Text = Utilidades.obterData();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
@@ -64,6 +66,7 @@ namespace Sistema_MaterialContrucao.Views
                 text_desc.Text = dgv.SelectedRows[0].Cells[2].Value.ToString();
                 text_valor.Text = dgv.SelectedRows[0].Cells[3].Value.ToString();
                 text_quantia.Text = dgv.SelectedRows[0].Cells[4].Value.ToString();
+                text_quantiaPedido.Focus();
             }
         }
 
@@ -88,6 +91,12 @@ namespace Sistema_MaterialContrucao.Views
                     {
                         text_totalComDesconto.Text = text_total.Text;
                     }
+                    text_desc.Clear();
+                    text_id.Clear();
+                    text_produto.Clear();
+                    text_quantia.Clear();
+                    text_quantiaPedido.Clear();
+                    text_valor.Clear();
                 }
 
                 else
@@ -158,9 +167,24 @@ namespace Sistema_MaterialContrucao.Views
         }
         private void btn_salvar_Click(object sender, EventArgs e)
         {
-            List<string[]> pedido = this.obterDadosPedido();
-            OrcamentoController.salvarOrcamento(pedido, comboBox_cliente.Text, label_pedido.Text, text_desconto.Text.Trim());
-        }
+            if (comboBox_cliente.Text.Trim() != "")
+            {
+                if (dataGridView_pedido.Rows.Count > 0)
+                {
+                    List<string[]> pedido = this.obterDadosPedido();
+                    OrcamentoController.salvarOrcamento(pedido, comboBox_cliente.Text, label_pedido.Text, text_desconto.Text.Trim());
+
+                }
+                else
+                {
+                    MessageBox.Show("Este pedido não esta vazio");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um cliente");
+            }
+            }
         public List<string[]> obterDadosPedido()
         {
             List<string[]> pedido = new List<string[]>();
@@ -182,6 +206,27 @@ namespace Sistema_MaterialContrucao.Views
         private void timer1_Tick(object sender, EventArgs e)
         {
             label_data.Text = Utilidades.obterData();
+        }
+
+        private void text_desconto_TextChanged(object sender, EventArgs e)
+        {
+            if (text_desconto.Text.Trim() != "")
+            {
+                text_totalComDesconto.Text = (decimal.Parse(text_total.Text) - ((decimal.Parse(text_total.Text) / 100) * decimal.Parse(text_desconto.Text))).ToString("F");
+            }
+            else
+            {
+                text_totalComDesconto.Text = text_total.Text;
+            }
+        }
+
+        private void dataGridView_pedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Deseja excluir esse produto?", "Confirmar?", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                dataGridView_pedido.Rows.Remove(dataGridView_pedido.CurrentRow);
+            }
         }
     }
 }

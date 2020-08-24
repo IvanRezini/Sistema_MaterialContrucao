@@ -441,6 +441,7 @@
             this.dataGridView_pedido.Size = new System.Drawing.Size(398, 334);
             this.dataGridView_pedido.TabIndex = 5;
             this.dataGridView_pedido.TabStop = false;
+            this.dataGridView_pedido.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_pedido_CellDoubleClick);
             // 
             // text_totalComDesconto
             // 
@@ -504,6 +505,7 @@
             this.text_desconto.Name = "text_desconto";
             this.text_desconto.Size = new System.Drawing.Size(146, 26);
             this.text_desconto.TabIndex = 3;
+            this.text_desconto.TextChanged += new System.EventHandler(this.text_desconto_TextChanged);
             this.text_desconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_desconto_KeyPress);
             // 
             // label12

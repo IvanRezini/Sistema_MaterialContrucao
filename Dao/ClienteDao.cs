@@ -34,7 +34,7 @@ namespace Sistema_MaterialContrucao.Dao
             }
         }
 
-        public static void insert(ClienteModel cliente)//Data Manipulation Language (insert, Delete, update)
+        public static void insert(ClienteModel cliente)
         {
            SQLiteDataAdapter da = null;
             try

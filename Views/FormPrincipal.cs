@@ -91,14 +91,17 @@ namespace Sistema_MaterialContrucao.Views
             form_RealizarOrcamento.ShowDialog();
         }
 
-
-        int i;
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            label_data.Text = Utilidades.obterData() + " " + i;
-            i++;
+            label_data.Text = Utilidades.obterData();
 
+        }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_buscarPedido form_BuscarPedido = new Form_buscarPedido();
+            form_BuscarPedido.ShowDialog();
         }
     }
 }

@@ -58,6 +58,13 @@ namespace Sistema_MaterialContrucao.Controllers
         }
         public static void salvarOrcamento(List<string[]> pedido, string codCliente, string codPedido, string desconto) 
         {
+            if (desconto.Trim() == "")
+            {
+                desconto = "0";
+            }
+            salvarPedidoBanco(pedido, codCliente, codPedido, desconto);
+
+
             string nomeArquivo = ConfiguracoesController.caminhoSalvarArquivos + @"\orcamento.pdf";
             FileStream arquivoPdf = new FileStream(nomeArquivo, FileMode.Create);
             Document doc = new Document(PageSize.A4);
@@ -116,10 +123,7 @@ namespace Sistema_MaterialContrucao.Controllers
             tabelaTotal.AddCell("Desconto: ");
             tabelaTotal.AddCell(desconto);
             tabelaTotal.AddCell("Total: ");
-            if (desconto.Trim()=="")
-            {
-                desconto = "0";
-            }
+            
             total = total - (total / 100 * Int32.Parse(desconto));
             tabelaTotal.AddCell(total.ToString("F"));
 
@@ -140,11 +144,30 @@ namespace Sistema_MaterialContrucao.Controllers
 
         }
 
-        public void salvarPedidoBanco(List<string[]> pedido, string codCliente, string codPedido, string desconto)
+        public static void salvarPedidoBanco(List<string[]> pedido, string codCliente, string codPedido, string desconto)
         {
-
+            if (desconto.Trim() == "")
+            {
+                desconto = "0";
+            }
+            codCliente = codCliente.Trim();
+            string[] cod = codCliente.Split(' ');
+            Console.WriteLine("\n\n\n\n" + cod[0] + "\n"+cod[1] + "\n\n");
+            PedidoDao.atualisarPedidoCriado(codPedido, cod[0], desconto);
+            PedidoDao.salvarPedido(codPedido, pedido);
         }
+        public static List<string> preencherComboBoxPedido()
+        {
+            List<string> cliente = new List<string>();
+            DataTable dt = new DataTable();
+            dt = PedidoDao.ListaPedidos();
 
+            foreach (DataRow linha in dt.Rows)
+            {
+                cliente.Add(linha[0].ToString() + " - " + linha[1].ToString());
+            }
+            return cliente;
+        }
 
     }
 }
