@@ -185,11 +185,6 @@ namespace Sistema_MaterialContrucao.Controllers
             DataTable prod = new DataTable();
             dt = PedidoDao.ListaItensPedido(codi);
 
-            Console.WriteLine(cod);
-            Console.WriteLine(codi);
-            Console.WriteLine(dt);
-            Console.WriteLine("\n\n\n");
-
             string[] pro = { "Codigo", "Produto", "Quantidade", "Valor", "Total" };
             //adiciona as colunas
             for (int i = 0; i < pro.Length; i++)
@@ -221,7 +216,7 @@ namespace Sistema_MaterialContrucao.Controllers
             pro[1] = "";
             pro[2] = "";
             pro[3] = "Desconto:";
-            pro[4] = desc.ToString("F");
+            pro[4] = desc.ToString();
             prod.Rows.Add(pro);
 
             pro[0] = "";

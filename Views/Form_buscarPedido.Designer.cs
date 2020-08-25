@@ -34,10 +34,9 @@
             this.comboBox_cliente = new System.Windows.Forms.ComboBox();
             this.panel_botoes = new System.Windows.Forms.Panel();
             this.btn_enviarPorEmail = new System.Windows.Forms.Button();
-            this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.btn_salvar = new System.Windows.Forms.Button();
+            this.btn_imprimir = new System.Windows.Forms.Button();
             this.label_data = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label_usuario = new System.Windows.Forms.Label();
@@ -75,48 +74,37 @@
             // panel_botoes
             // 
             this.panel_botoes.Controls.Add(this.btn_enviarPorEmail);
-            this.panel_botoes.Controls.Add(this.btn_imprimir);
             this.panel_botoes.Controls.Add(this.btn_sair);
             this.panel_botoes.Controls.Add(this.btn_cancelar);
-            this.panel_botoes.Controls.Add(this.btn_salvar);
+            this.panel_botoes.Controls.Add(this.btn_imprimir);
             this.panel_botoes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_botoes.Location = new System.Drawing.Point(0, 455);
+            this.panel_botoes.Location = new System.Drawing.Point(0, 381);
             this.panel_botoes.Name = "panel_botoes";
-            this.panel_botoes.Size = new System.Drawing.Size(790, 31);
+            this.panel_botoes.Size = new System.Drawing.Size(639, 31);
             this.panel_botoes.TabIndex = 16;
             // 
             // btn_enviarPorEmail
             // 
             this.btn_enviarPorEmail.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_enviarPorEmail.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_enviarPorEmail.Location = new System.Drawing.Point(372, 0);
+            this.btn_enviarPorEmail.Location = new System.Drawing.Point(248, 0);
             this.btn_enviarPorEmail.Name = "btn_enviarPorEmail";
             this.btn_enviarPorEmail.Size = new System.Drawing.Size(124, 31);
             this.btn_enviarPorEmail.TabIndex = 5;
             this.btn_enviarPorEmail.Text = "Enviar por email";
             this.btn_enviarPorEmail.UseVisualStyleBackColor = true;
             // 
-            // btn_imprimir
-            // 
-            this.btn_imprimir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_imprimir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_imprimir.Location = new System.Drawing.Point(248, 0);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.Size = new System.Drawing.Size(124, 31);
-            this.btn_imprimir.TabIndex = 4;
-            this.btn_imprimir.Text = "Imprimir";
-            this.btn_imprimir.UseVisualStyleBackColor = true;
-            // 
             // btn_sair
             // 
             this.btn_sair.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_sair.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_sair.Location = new System.Drawing.Point(666, 0);
+            this.btn_sair.Location = new System.Drawing.Point(515, 0);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(124, 31);
             this.btn_sair.TabIndex = 3;
             this.btn_sair.Text = "Sair";
             this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
             // 
             // btn_cancelar
             // 
@@ -128,17 +116,19 @@
             this.btn_cancelar.TabIndex = 1;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // btn_salvar
+            // btn_imprimir
             // 
-            this.btn_salvar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_salvar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_salvar.Location = new System.Drawing.Point(0, 0);
-            this.btn_salvar.Name = "btn_salvar";
-            this.btn_salvar.Size = new System.Drawing.Size(124, 31);
-            this.btn_salvar.TabIndex = 0;
-            this.btn_salvar.Text = "Salvar";
-            this.btn_salvar.UseVisualStyleBackColor = true;
+            this.btn_imprimir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_imprimir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_imprimir.Location = new System.Drawing.Point(0, 0);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.Size = new System.Drawing.Size(124, 31);
+            this.btn_imprimir.TabIndex = 0;
+            this.btn_imprimir.Text = "Imprimir";
+            this.btn_imprimir.UseVisualStyleBackColor = true;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // label_data
             // 
@@ -198,9 +188,9 @@
             this.panel_rodape.Controls.Add(this.label1);
             this.panel_rodape.Controls.Add(this.label_versao);
             this.panel_rodape.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_rodape.Location = new System.Drawing.Point(0, 486);
+            this.panel_rodape.Location = new System.Drawing.Point(0, 412);
             this.panel_rodape.Name = "panel_rodape";
-            this.panel_rodape.Size = new System.Drawing.Size(790, 23);
+            this.panel_rodape.Size = new System.Drawing.Size(639, 23);
             this.panel_rodape.TabIndex = 15;
             // 
             // label1
@@ -221,7 +211,7 @@
             this.label_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_versao.AutoSize = true;
             this.label_versao.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_versao.Location = new System.Drawing.Point(742, 3);
+            this.label_versao.Location = new System.Drawing.Point(591, 3);
             this.label_versao.Margin = new System.Windows.Forms.Padding(3);
             this.label_versao.Name = "label_versao";
             this.label_versao.Size = new System.Drawing.Size(42, 13);
@@ -253,7 +243,7 @@
             this.dataGridView_Pedido.RowHeadersVisible = false;
             this.dataGridView_Pedido.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView_Pedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Pedido.Size = new System.Drawing.Size(790, 392);
+            this.dataGridView_Pedido.Size = new System.Drawing.Size(639, 318);
             this.dataGridView_Pedido.TabIndex = 17;
             this.dataGridView_Pedido.TabStop = false;
             // 
@@ -266,7 +256,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 509);
+            this.ClientSize = new System.Drawing.Size(639, 435);
             this.Controls.Add(this.dataGridView_Pedido);
             this.Controls.Add(this.panel_botoes);
             this.Controls.Add(this.panel_rodape);
@@ -290,10 +280,9 @@
         private System.Windows.Forms.ComboBox comboBox_cliente;
         private System.Windows.Forms.Panel panel_botoes;
         private System.Windows.Forms.Button btn_enviarPorEmail;
-        private System.Windows.Forms.Button btn_imprimir;
         private System.Windows.Forms.Button btn_sair;
         private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.Button btn_salvar;
+        private System.Windows.Forms.Button btn_imprimir;
         private System.Windows.Forms.Label label_data;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label_usuario;

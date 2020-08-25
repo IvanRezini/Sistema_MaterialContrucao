@@ -182,6 +182,8 @@ namespace Sistema_MaterialContrucao.Views
             if (pedido.Count > 0)
             {
                 OrcamentoController.salvarOrcamento(pedido, comboBox_cliente.Text, label_pedido.Text, text_desconto.Text.Trim());
+                this.limparCampos();
+                label_pedido.Text = PedidoDao.insertNovoPedido();
             }
         }
         public List<string[]> obterDadosPedido()
