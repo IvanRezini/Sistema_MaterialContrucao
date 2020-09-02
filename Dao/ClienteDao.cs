@@ -44,7 +44,7 @@ namespace Sistema_MaterialContrucao.Dao
                 cmd.CommandText = string.Format(@"INSERT INTO tbCliente(nome, cpf, telefone, dataCadastro, cep, cidade, bairro, rua, numero, email)
                       VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', {8}, '{9}')",
                       cliente.Nome, cliente.Cpf, cliente.Telefone, cliente.DataCadastro, cliente.Cep, cliente.Cidade, cliente.Bairro, cliente.Rua, cliente.Numero, cliente.Email);
-
+               
                 da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                 cmd.ExecuteNonQueryAsync();
                 vcon.Close();
@@ -64,7 +64,7 @@ namespace Sistema_MaterialContrucao.Dao
                 var vcon = conexaoBanco();
                 var cmd = vcon.CreateCommand();
                 cmd.CommandText = string.Format(@"UPDATE tbCliente SET nome = '{0}', cpf = '{1}', telefone = '{2}', dataCadastro = '{3}', cep = '{4}',
-                        cidade = 'cida{5}de', bairro = '{6}', rua = '{7}', numero = {8}, email = '{9}' WHERE id = {10} ",
+                        cidade = '{5}', bairro = '{6}', rua = '{7}', numero = {8}, email = '{9}' WHERE id = {10} ",
                         cliente.Nome, cliente.Cpf, cliente.Telefone, cliente.DataCadastro, cliente.Cep, cliente.Cidade, cliente.Bairro, cliente.Rua, cliente.Numero, cliente.Email, cliente.Id);
                 da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                 cmd.ExecuteNonQueryAsync();

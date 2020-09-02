@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sistema_MaterialContrucao.Dao;
+using System.Windows.Forms;
 
 namespace Sistema_MaterialContrucao.Controllers
 {
@@ -102,6 +103,7 @@ namespace Sistema_MaterialContrucao.Controllers
             {
                 resposata = "Nome em branco";
             }
+            MessageBox.Show(cli.Cidade);
             return resposata;
         }
 

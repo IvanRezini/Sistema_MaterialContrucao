@@ -56,10 +56,12 @@ namespace Sistema_MaterialContrucao.Controllers
             }
             catch (RegexMatchTimeoutException e)
             {
+                Console.WriteLine(e);
                 return false;
             }
             catch (ArgumentException e)
             {
+                Console.WriteLine(e);
                 return false;
             }
 
@@ -70,8 +72,9 @@ namespace Sistema_MaterialContrucao.Controllers
                     @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
                     RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
             }
-            catch (RegexMatchTimeoutException)
+            catch (RegexMatchTimeoutException e)
             {
+                Console.WriteLine(e);
                 return false;
             }
         }
@@ -130,27 +133,34 @@ namespace Sistema_MaterialContrucao.Controllers
         {
             cep = cep.Replace("-", "").Replace(" ", "");
             var service = new CorreiosApi();
-            string[] end = new string[3];
+            string[] end = new string[4];
             try
             {
                 var dados = service.consultaCEP(cep);
                 var bairro = dados.bairro;
                 var cidade = dados.cidade;
-                var rua = dados.complemento;
+                var rua = dados.end;//rua
+                var uf = dados.uf;
+              
                 end[0] = cidade;
                 end[1] = bairro;
                 end[2] = rua;
+                end[3] = uf;
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine(i + i * 4+"    "+i);
+                }
+
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
             }
             return end;
         }
-        /// <summary>
+
+
         /// //Formatação do dataGridView para todos terem o mesmo padrão
-        /// </summary>
-        /// <param name="dg"></param>
-        /// <returns></returns>
         public static DataGridView Grade(DataGridView dg)
         {
             dg.EditMode = DataGridViewEditMode.EditProgrammatically;

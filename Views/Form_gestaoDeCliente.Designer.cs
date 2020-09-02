@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView_Cliente = new System.Windows.Forms.DataGridView();
+            this.text_uf = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.text_numero = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.text_rua = new System.Windows.Forms.TextBox();
@@ -90,6 +92,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.text_uf);
+            this.splitContainer1.Panel2.Controls.Add(this.label14);
             this.splitContainer1.Panel2.Controls.Add(this.text_numero);
             this.splitContainer1.Panel2.Controls.Add(this.label13);
             this.splitContainer1.Panel2.Controls.Add(this.text_rua);
@@ -129,6 +133,7 @@
             this.dataGridView_Cliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_Cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Cliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_Cliente.Enabled = false;
             this.dataGridView_Cliente.EnableHeadersVisualStyles = false;
             this.dataGridView_Cliente.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_Cliente.MultiSelect = false;
@@ -141,6 +146,32 @@
             this.dataGridView_Cliente.TabIndex = 3;
             this.dataGridView_Cliente.TabStop = false;
             this.dataGridView_Cliente.SelectionChanged += new System.EventHandler(this.dataGridView_Cliente_SelectionChanged);
+            // 
+            // text_uf
+            // 
+            this.text_uf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_uf.Enabled = false;
+            this.text_uf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.text_uf.Location = new System.Drawing.Point(39, 176);
+            this.text_uf.Name = "text_uf";
+            this.text_uf.Size = new System.Drawing.Size(37, 26);
+            this.text_uf.TabIndex = 6;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(4, 176);
+            this.label14.Margin = new System.Windows.Forms.Padding(10);
+            this.label14.Name = "label14";
+            this.label14.Padding = new System.Windows.Forms.Padding(3);
+            this.label14.Size = new System.Drawing.Size(36, 26);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Uf:";
             // 
             // text_numero
             // 
@@ -155,7 +186,7 @@
             this.text_numero.Name = "text_numero";
             this.text_numero.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.text_numero.Size = new System.Drawing.Size(96, 26);
-            this.text_numero.TabIndex = 8;
+            this.text_numero.TabIndex = 9;
             // 
             // label13
             // 
@@ -181,7 +212,7 @@
             this.text_rua.Location = new System.Drawing.Point(61, 218);
             this.text_rua.Name = "text_rua";
             this.text_rua.Size = new System.Drawing.Size(320, 26);
-            this.text_rua.TabIndex = 7;
+            this.text_rua.TabIndex = 8;
             // 
             // label12
             // 
@@ -209,7 +240,7 @@
             this.text_cep.Name = "text_cep";
             this.text_cep.Size = new System.Drawing.Size(95, 26);
             this.text_cep.TabIndex = 4;
-            this.text_cep.Leave += new System.EventHandler(this.text_cep_Leave);
+            this.text_cep.TextChanged += new System.EventHandler(this.text_cep_TextChanged);
             // 
             // label11
             // 
@@ -259,7 +290,7 @@
             this.text_email.Location = new System.Drawing.Point(61, 299);
             this.text_email.Name = "text_email";
             this.text_email.Size = new System.Drawing.Size(317, 26);
-            this.text_email.TabIndex = 9;
+            this.text_email.TabIndex = 10;
             // 
             // text_bairro
             // 
@@ -267,10 +298,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text_bairro.Enabled = false;
             this.text_bairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.text_bairro.Location = new System.Drawing.Point(61, 176);
+            this.text_bairro.Location = new System.Drawing.Point(147, 176);
             this.text_bairro.Name = "text_bairro";
-            this.text_bairro.Size = new System.Drawing.Size(323, 26);
-            this.text_bairro.TabIndex = 6;
+            this.text_bairro.Size = new System.Drawing.Size(237, 26);
+            this.text_bairro.TabIndex = 7;
             // 
             // text_cidade
             // 
@@ -343,7 +374,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(1, 176);
+            this.label9.Location = new System.Drawing.Point(94, 176);
             this.label9.Margin = new System.Windows.Forms.Padding(10);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(3);
@@ -656,5 +687,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown text_numero;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox text_uf;
+        private System.Windows.Forms.Label label14;
     }
 }

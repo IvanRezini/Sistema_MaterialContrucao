@@ -16,6 +16,7 @@ namespace Sistema_MaterialContrucao.Views
 {
     public partial class Form_gestaoDeCliente : Form
     {
+        int controleDataGr = 0;
         public Form_gestaoDeCliente()
         {
             InitializeComponent();
@@ -28,15 +29,12 @@ namespace Sistema_MaterialContrucao.Views
             label_data.Text = Utilidades.obterData();
             label_usuario.Text = UsuarioLogado.usuario.Nome;
             label_versao.Text = Versao.versao;
-            dataGridView_Cliente.Enabled = false;
             btn_excluir.Visible = false;
             btn_salvar.Visible = false;
             this.limparCampos();
         }
         private void popularDataGrid()
         {
-
-            dataGridView_Cliente.ClearSelection();
             dataGridView_Cliente.DataSource = ClienteDao.ListaClientes();
             dataGridView_Cliente.Columns[0].Width = 50;
             dataGridView_Cliente.Columns[1].Width = 110;
@@ -46,6 +44,8 @@ namespace Sistema_MaterialContrucao.Views
             dataGridView_Cliente.Columns[8].Width = 50;
             dataGridView_Cliente.AutoResizeColumn(9);
             dataGridView_Cliente.AutoResizeColumn(10);
+            dataGridView_Cliente.ClearSelection();
+            controleDataGr = 1;
         }
             private void limparCampos()
         {
@@ -58,6 +58,7 @@ namespace Sistema_MaterialContrucao.Views
             text_cpf.Clear();
             text_bairro.Clear();
             text_cep.Clear();
+            text_uf.Clear();
             text_numero.Value = 0;
             dataGridView_Cliente.ClearSelection();
         }
@@ -72,6 +73,7 @@ namespace Sistema_MaterialContrucao.Views
             text_bairro.Enabled = false;
             text_cep.Enabled = false;
             text_cpf.Enabled = false;
+            text_uf.Enabled = false;
             text_numero.Enabled = false;
 
         }
@@ -82,19 +84,34 @@ namespace Sistema_MaterialContrucao.Views
             text_email.Enabled = true;
             text_rua.Enabled = true;
             text_cidade.Enabled = true;
+            text_uf.Enabled = true;
             text_bairro.Enabled = true;
             text_cep.Enabled = true;
             text_cpf.Enabled = true;
             text_numero.Enabled = true;
         }
-        private void text_cep_Leave(object sender, EventArgs e)
+
+        private void text_cep_TextChanged(object sender, EventArgs e)
         {
-            string[] endereco = Utilidades.endereco(text_cep.Text);
-            text_cidade.Text = endereco[0];
-            text_bairro.Text = endereco[1];
-            text_rua.Text = endereco[2];
+            Task task = BuscarCep();
         }
 
+
+        public async Task BuscarCep()
+        {
+            string r = text_cep.Text.Replace("-", "").Replace(" ", "");
+            if (controleDataGr == 1)
+            {
+                if (r.Length == 8)
+                {
+                    string[] endereco = await Task.Run(() => Utilidades.endereco(text_cep.Text));
+                    text_cidade.Text = endereco[0];
+                    text_bairro.Text = endereco[1];
+                    text_rua.Text = endereco[2];
+                    text_uf.Text = endereco[3];
+                }
+            }
+        }
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             ClienteModel cli = new ClienteModel();
@@ -104,7 +121,7 @@ namespace Sistema_MaterialContrucao.Views
             cli.Telefone = text_telefone.Text;
             cli.Bairro = text_bairro.Text;
             cli.Cep = text_cep.Text;
-            cli.Cidade = text_cidade.Text;
+            cli.Cidade = text_cidade.Text + " - " + text_uf.Text;
             cli.Cpf = text_cpf.Text;
             cli.Email = text_email.Text;
             if (text_id.Text != "")
@@ -202,7 +219,10 @@ namespace Sistema_MaterialContrucao.Views
                 text_cpf.Text = dgv.SelectedRows[0].Cells[2].Value.ToString();
                 text_telefone.Text = dgv.SelectedRows[0].Cells[3].Value.ToString();
                 text_cep.Text = dgv.SelectedRows[0].Cells[4].Value.ToString();
-                text_cidade.Text = dgv.SelectedRows[0].Cells[5].Value.ToString();
+
+                text_cidade.Text = dgv.SelectedRows[0].Cells[5].Value.ToString().Split('-')[0].Trim();
+                text_uf.Text = dgv.SelectedRows[0].Cells[5].Value.ToString().Split('-')[1].Trim();
+
                 text_bairro.Text = dgv.SelectedRows[0].Cells[6].Value.ToString();
                 text_rua.Text = dgv.SelectedRows[0].Cells[7].Value.ToString();
                 text_numero.Text = dgv.SelectedRows[0].Cells[8].Value.ToString();
