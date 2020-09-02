@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Correios.CorreiosServiceReference;
 using Sistema_MaterialContrucao.Controllers;
 using Sistema_MaterialContrucao.Dao;
 using Sistema_MaterialContrucao.Models;

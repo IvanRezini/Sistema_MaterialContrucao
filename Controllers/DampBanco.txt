@@ -1,0 +1,88 @@
+﻿
+--
+-- File generated with SQLiteStudio v3.2.1 on qua set 2 10:59:02 2020
+--
+-- Text encoding used: System
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: tbCliente
+DROP TABLE IF EXISTS tbCliente;
+
+CREATE TABLE tbCliente (
+    id           INTEGER      PRIMARY KEY AUTOINCREMENT
+                              UNIQUE
+                              NOT NULL,
+    nome         VARCHAR (30) NOT NULL,
+    cpf          VARCHAR (15) NOT NULL,
+    telefone     VARCHAR (15),
+    cep          VARCHAR (10),
+    cidade       VARCHAR (30),
+    bairro       VARCHAR (30),
+    rua          VARCHAR (30),
+    numero       INT          DEFAULT NULL,
+    email        VARCHAR (30),
+    dataCadastro VARCHAR (30) NOT NULL
+);
+
+-- Table: tbItensPedido
+DROP TABLE IF EXISTS tbItensPedido;
+
+CREATE TABLE tbItensPedido (
+    idPedido  INTEGER REFERENCES tbPedido (id),
+    idProduto INTEGER REFERENCES tbProduto (id),
+    quantia   INTEGER NOT NULL
+                      DEFAULT (0),
+    valor     INTEGER DEFAULT (0) 
+                      NOT NULL
+);
+
+
+-- Table: tbPedido
+DROP TABLE IF EXISTS tbPedido;
+
+CREATE TABLE tbPedido (
+    id        INTEGER PRIMARY KEY AUTOINCREMENT
+                      UNIQUE
+                      NOT NULL,
+    idCliente INTEGER REFERENCES tbCliente (id) ON DELETE NO ACTION
+                                                ON UPDATE NO ACTION,
+    data      VARCHAR,
+    desconto  INTEGER DEFAULT (0) 
+);
+
+-- Table: tbProduto
+DROP TABLE IF EXISTS tbProduto;
+
+CREATE TABLE tbProduto (
+    id                INTEGER      PRIMARY KEY AUTOINCREMENT
+                                   UNIQUE
+                                   NOT NULL,
+    nome              VARCHAR (30) NOT NULL,
+    descricao         TEXT,
+    valor             INT          NOT NULL,
+    margemLucro       INT          DEFAULT (0),
+    quantidadeEStoque INT          NOT NULL,
+    unidade           VARCHAR      NOT NULL,
+    fornecedor        VARCHAR (30),
+    status            INT (1)      DEFAULT (0) 
+);
+
+-- Table: tbUsuario
+DROP TABLE IF EXISTS tbUsuario;
+
+CREATE TABLE tbUsuario (
+    id              INTEGER      PRIMARY KEY AUTOINCREMENT
+                                 UNIQUE
+                                 NOT NULL,
+    nome            VARCHAR (30) NOT NULL,
+    telefoneUsuario VARCHAR (15),
+    nomeDeUsuario   VARCHAR (15) NOT NULL,
+    senhaUsuario    VARCHAR (30) NOT NULL,
+    tipoUsuario     INT (1)      NOT NULL,
+    email           VARCHAR (30) 
+);
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
